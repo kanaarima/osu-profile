@@ -12,8 +12,6 @@ namespace osu_stats
         {
 
             public string Json { get; set; }
-            [JsonProperty("code")]
-            public int Code { get; set; }
 
             [JsonProperty("id")]
             public int Id { get; set; }
@@ -21,47 +19,17 @@ namespace osu_stats
             [JsonProperty("username")]
             public string Username { get; set; }
 
-            [JsonProperty("username_aka")]
-            public string UsernameAka { get; set; }
-
-            [JsonProperty("registered_on")]
-            public DateTime RegisteredOn { get; set; }
-
-            [JsonProperty("privileges")]
-            public int Privileges { get; set; }
-
-            [JsonProperty("latest_activity")]
-            public DateTime LatestActivity { get; set; }
-
             [JsonProperty("country")]
             public string Country { get; set; }
 
             [JsonProperty("stats")]
             public List<Stat> Stats { get; set; }
 
-            [JsonProperty("play_style")]
-            public int PlayStyle { get; set; }
-
-            [JsonProperty("favourite_mode")]
-            public int FavouriteMode { get; set; }
-
-            [JsonProperty("badges")]
-            public object Badges { get; set; }
-
             [JsonProperty("clan")]
             public Clan Clan { get; set; }
 
             [JsonProperty("followers")]
             public int Followers { get; set; }
-
-            [JsonProperty("tbadges")]
-            public object Tbadges { get; set; }
-
-            [JsonProperty("custom_badge")]
-            public object CustomBadge { get; set; }
-
-            [JsonProperty("silence_info")]
-            public SilenceInfo SilenceInfo { get; set; }
 
             [JsonProperty("chosen_mode")]
             public Mode ChosenMode { get; set; }
@@ -173,15 +141,6 @@ namespace osu_stats
 
             [JsonProperty("status")]
             public int Status { get; set; }
-        }
-
-        public class SilenceInfo
-        {
-            [JsonProperty("reason")]
-            public string Reason { get; set; }
-
-            [JsonProperty("end")]
-            public DateTime End { get; set; }
         }
 
         public class Difficulty
@@ -309,9 +268,6 @@ namespace osu_stats
 
         public class UserScores
         {
-            [JsonProperty("code")]
-            public int Code { get; set; }
-
             [JsonProperty("scores")]
             public List<Score> Scores { get; set; }
         }
@@ -319,8 +275,6 @@ namespace osu_stats
         public class Leaderboard
         {
             public string Json { get; set; }
-            [JsonProperty("code")]
-            public int Code { get; set; }
 
             [JsonProperty("users")]
             public List<UserInfo> Users { get; set; }
