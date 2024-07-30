@@ -1,19 +1,42 @@
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.Diagnostics;
+using System.Security.Policy;
 
 namespace osu_stats
 {
     internal static class Program
     {
+
+        static readonly string VERSION = "2";
+
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
         [STAThread]
+
         static void Main() {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             AppDomain.CurrentDomain.UnhandledException += UnhandledExceptionTrapper;
             Application.ThreadException += ThreadExceptionTrapper;
+            var update = CheckForUpdates();
+            if (update != null) {
+                DialogResult result = MessageBox.Show(
+                    $"{update}\n\nClick yes to redirect to website",
+                    "Update available",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
+                if (result == DialogResult.Yes) {
+                    Process.Start(new ProcessStartInfo {
+                        FileName = "https://github.com/kanaarima/osu-profile/releases",
+                        UseShellExecute = true
+                    });
+                    return;
+                }
+            }
             Application.Run(new ContainerForm());
         }
 
@@ -39,7 +62,28 @@ namespace osu_stats
             }
         }
 
+        static string? CheckForUpdates() {
+            string releasesUrl = "https://api.github.com/repos/kanaarima/osu-profile/releases/latest";
+
+            using (HttpClient client = new HttpClient()) {
+                client.DefaultRequestHeaders.Add("User-Agent", "VersionChecker");
+
+                try {
+                    string responseString = client.GetStringAsync(releasesUrl).Result;
+                    JObject releaseData = JObject.Parse(responseString);
+                    string latestVersion = releaseData["name"]?.ToString().TrimStart('b');
+                    if (!string.Equals(VERSION, latestVersion, StringComparison.OrdinalIgnoreCase)) {
+                        return (string?)releaseData["body"];
+                    }
+                } catch {
+                    return null;
+                }
+            }
+            return null;
+        }
+
     }
+
 
     public class Settings {
         public int UserID { get; set; }
