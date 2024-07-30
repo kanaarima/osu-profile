@@ -280,57 +280,45 @@ namespace osu_stats
             public List<UserInfo> Users { get; set; }
         }
 
-        public static UserInfo GetUserInfo(int user_id) {
+        public static string GetResponse(string url) {
             using (HttpClient client = new HttpClient()) {
-                try {
-                    // Send a GET request
-                    HttpResponseMessage response = client.GetAsync($"https://akatsuki.gg/api/v1/users/full?id={user_id}").Result;
-                    response.EnsureSuccessStatusCode();
-                    string responseBody = response.Content.ReadAsStringAsync().Result;
-                    UserInfo json = JsonConvert.DeserializeObject<UserInfo>(responseBody);
-                    json.Json = responseBody;
-                    Thread.Sleep(250);
-                    return json;
-                } catch (Exception ex) {
-                    throw ex;
+                client.DefaultRequestHeaders.UserAgent.ParseAdd("osu-profile/0.0.1 (+https://github.com/kanaarima/osu-profile)");
+                while (true) {
+                    HttpResponseMessage response = client.GetAsync(url).Result;
+                    if (!response.IsSuccessStatusCode) {
+                        if ((int)response.StatusCode < 500) {
+                            return "";
+                        } else {
+                            Thread.Sleep(2000);
+                            continue;
+                        }
+                    }
+                    return response.Content.ReadAsStringAsync().Result;
                 }
             }
+        }
 
+        public static UserInfo GetUserInfo(int user_id) {
+            var responseBody = GetResponse($"https://akatsuki.gg/api/v1/users/full?id={user_id}");
+            UserInfo json = JsonConvert.DeserializeObject<UserInfo>(responseBody);
+            json.Json = responseBody;
+            Thread.Sleep(250);
+            return json;
         }
 
         public static UserScores GetUserScores(int user_id, int mode, int relax, int page) {
-            using (HttpClient client = new HttpClient()) {
-                try {
-                    // Send a GET request
-                    HttpResponseMessage response = client.GetAsync($"https://akatsuki.gg/api/v1/users/scores/best?mode={mode}&p={page}&l=100&rx={relax}&id={user_id}").Result;
-                    response.EnsureSuccessStatusCode();
-                    string responseBody = response.Content.ReadAsStringAsync().Result;
-                    UserScores json = JsonConvert.DeserializeObject<UserScores>(responseBody);
-                    Thread.Sleep(500);
-                    return json;
-                } catch (Exception ex) {
-                    throw ex;
-                }
-            }
-
+            var responseBody = GetResponse($"https://akatsuki.gg/api/v1/users/scores/best?mode={mode}&p={page}&l=100&rx={relax}&id={user_id}");
+            UserScores json = JsonConvert.DeserializeObject<UserScores>(responseBody);
+            Thread.Sleep(500);
+            return json;
         }
 
         public static Leaderboard GetScoreLeaderboard(int mode, int relax, int page, int size=500) {
-            using (HttpClient client = new HttpClient()) {
-                try {
-                    // Send a GET request
-                    HttpResponseMessage response = client.GetAsync($"https://akatsuki.gg/api/v1/leaderboard?mode={mode}&rx={relax}&p={page}&l={size}&country=&sort=score").Result;
-                    response.EnsureSuccessStatusCode();
-                    string responseBody = response.Content.ReadAsStringAsync().Result;
-                    Leaderboard json = JsonConvert.DeserializeObject<Leaderboard>(responseBody);
-                    json.Json = responseBody;
-                    Thread.Sleep(500);
-                    return json;
-                } catch (Exception ex) {
-                    throw ex;
-                }
-            }
-
+            var responseBody = GetResponse($"https://akatsuki.gg/api/v1/leaderboard?mode={mode}&rx={relax}&p={page}&l={size}&country=&sort=score");
+            Leaderboard json = JsonConvert.DeserializeObject<Leaderboard>(responseBody);
+            json.Json = responseBody;
+            Thread.Sleep(500);
+            return json;
         }
 
     }
