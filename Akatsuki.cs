@@ -23,7 +23,7 @@ namespace osu_stats
             public string Country { get; set; }
 
             [JsonProperty("stats")]
-            public List<Stat> Stats { get; set; }
+            public List<Mode> Stats { get; set; }
 
             [JsonProperty("clan")]
             public Clan Clan { get; set; }
@@ -32,25 +32,25 @@ namespace osu_stats
             public int Followers { get; set; }
 
             [JsonProperty("chosen_mode")]
-            public Mode ChosenMode { get; set; }
-        }
-
-        public class Stat
-        {
-            [JsonProperty("std")]
-            public Mode Std { get; set; }
-
-            [JsonProperty("taiko")]
-            public Mode Taiko { get; set; }
-
-            [JsonProperty("ctb")]
-            public Mode Ctb { get; set; }
-
-            [JsonProperty("mania")]
-            public Mode Mania { get; set; }
+            public Stats ChosenMode { get; set; }
         }
 
         public class Mode
+        {
+            [JsonProperty("std")]
+            public Stats Std { get; set; }
+
+            [JsonProperty("taiko")]
+            public Stats Taiko { get; set; }
+
+            [JsonProperty("ctb")]
+            public Stats Ctb { get; set; }
+
+            [JsonProperty("mania")]
+            public Stats Mania { get; set; }
+        }
+
+        public class Stats
         {
             [JsonProperty("ranked_score")]
             public long RankedScore { get; set; }

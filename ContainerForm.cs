@@ -61,8 +61,8 @@ namespace osu_stats
             new SettingsForm().Show();
         }
 
-        private List<Mode> ReorganiseStats(UserInfo info) {
-            List<Mode> stats =
+        private List<Stats> ReorganiseStats(UserInfo info) {
+            List<Stats> stats =
             [
                 info.Stats[0].Std,
                 info.Stats[1].Std,
