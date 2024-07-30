@@ -26,7 +26,7 @@ namespace osu_stats
             }
 
             public void Save() {
-                File.WriteAllText("settings.json", JsonConvert.SerializeObject(this, Formatting.Indented));
+                File.WriteAllText("leaderboard.json", JsonConvert.SerializeObject(this, Formatting.Indented));
             }
         }
         public Daemon() { }
