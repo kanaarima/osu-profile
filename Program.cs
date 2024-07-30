@@ -10,14 +10,8 @@ namespace osu_stats
 
         static readonly string VERSION = "2";
 
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
         [STAThread]
-
         static void Main() {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             AppDomain.CurrentDomain.UnhandledException += UnhandledExceptionTrapper;
             Application.ThreadException += ThreadExceptionTrapper;
@@ -41,15 +35,11 @@ namespace osu_stats
         }
 
         static void ThreadExceptionTrapper(object sender, System.Threading.ThreadExceptionEventArgs e) {
-            // Log the exception
             LogException(e.Exception);
         }
 
         static void UnhandledExceptionTrapper(object sender, UnhandledExceptionEventArgs e) {
-            // Log the exception
             LogException((Exception)e.ExceptionObject);
-
-            // Exit the application
             Application.Exit();
         }
 
