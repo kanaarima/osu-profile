@@ -522,9 +522,9 @@
             InfoLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             InfoLabel.Location = new Point(12, 376);
             InfoLabel.Name = "InfoLabel";
-            InfoLabel.Size = new Size(30, 17);
+            InfoLabel.Size = new Size(142, 17);
             InfoLabel.TabIndex = 42;
-            InfoLabel.Text = "Info";
+            InfoLabel.Text = "Fetching informations...";
             // 
             // button1
             // 
