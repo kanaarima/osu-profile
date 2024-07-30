@@ -1,6 +1,7 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Diagnostics;
+using System.Reflection;
 using System.Security.Policy;
 
 namespace osu_stats
@@ -70,6 +71,17 @@ namespace osu_stats
                 }
             }
             return null;
+        }
+
+        public static void RestartApplication() {
+            try {
+                Process currentProcess = Process.GetCurrentProcess();
+                string exePath = Assembly.GetExecutingAssembly().Location;
+                Process.Start(exePath.Replace(".dll", ".exe"));
+                Application.Exit();
+            } catch (Exception ex) {
+                MessageBox.Show($"An error occurred while restarting the application: {ex.Message}");
+            }
         }
 
     }

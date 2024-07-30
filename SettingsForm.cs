@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static osu_stats.Daemon;
 
 namespace osu_stats
 {
@@ -24,6 +25,14 @@ namespace osu_stats
 
         private void SettingsForm_FormClosing(object sender, FormClosingEventArgs e) {
             var settings = Settings.Load();
+            if (settings.UserID != (int)UserIDBox.Value) {
+                settings = new Settings(); // Reset settings on user switch
+                LeaderboardModel.Load(true).Save(); // Reset leaderboard so score rank updates
+                settings.DefaultGameMode = GameModeBox.SelectedIndex;
+                settings.UserID = (int)UserIDBox.Value;
+                settings.Save();
+                Program.RestartApplication();
+            }
             settings.DefaultGameMode = GameModeBox.SelectedIndex;
             settings.UserID = (int)UserIDBox.Value;
             settings.Save();

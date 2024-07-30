@@ -12,17 +12,17 @@ namespace osu_stats
 {
     internal class Daemon
     {
-        private class LeaderboardModel()
+        public class LeaderboardModel()
         {
             public DateTime LastUpdated { get; set; }
-            public static LeaderboardModel Load() {
+            public static LeaderboardModel Load(bool reset=false) {
                 try {
-                    return JsonConvert.DeserializeObject<LeaderboardModel>(File.ReadAllText("leaderboard.json"));
-                } catch {
-                    var model = new LeaderboardModel();
-                    model.LastUpdated = DateTime.FromFileTimeUtc(0);
-                    return model;
-                }
+                    if (!reset)
+                        return JsonConvert.DeserializeObject<LeaderboardModel>(File.ReadAllText("leaderboard.json"));
+                } catch {}
+                var model = new LeaderboardModel();
+                model.LastUpdated = DateTime.FromFileTimeUtc(0);
+                return model;
             }
 
             public void Save() {
