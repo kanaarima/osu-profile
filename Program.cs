@@ -13,9 +13,15 @@ namespace osu_stats
 
         [STAThread]
         static void Main() {
+            Trace.Listeners.Add(new TextWriterTraceListener("logfile.txt"));
+            Trace.AutoFlush = true;
+            TraceSwitch traceSwitch = new TraceSwitch("General", "Entire Application");
+            traceSwitch.Level = TraceLevel.Info;
+
             ApplicationConfiguration.Initialize();
             AppDomain.CurrentDomain.UnhandledException += UnhandledExceptionTrapper;
             Application.ThreadException += ThreadExceptionTrapper;
+
             var update = CheckForUpdates();
             if (update != null) {
                 DialogResult result = MessageBox.Show(
