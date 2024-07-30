@@ -7,6 +7,8 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace osu_stats
 {
@@ -47,6 +49,7 @@ namespace osu_stats
                         Thread.Sleep(1000 * 60);
                         continue;
                     }
+                    Trace.TraceInformation("Starting stats update cycle");
                     var statistics = Akatsuki.GetUserInfo(settings.UserID);
                     settings.NewJson = statistics.Json;
 
@@ -54,6 +57,7 @@ namespace osu_stats
                         settings.OldJson = statistics.Json;
 
                     if (settings.Clears == null) {
+                        Trace.TraceInformation("Users clears never fetched, starting initial cycle");
                         settings.ClearsPage = new int[8];
                         settings.Clears = new int[8];
                         for (int i = 0; i < modes.Length; i++) {
@@ -61,12 +65,15 @@ namespace osu_stats
                             var page = 1;
                             var size = 0;
                             while (true) {
+                                Trace.TraceInformation($"Finding clears page: {page}");
                                 var response = Akatsuki.GetUserScores(settings.UserID, mode.Item1, mode.Item2, page);
                                 if (response.Scores == null || response.Scores.Count != 100) {
+                                    Trace.TraceInformation($"Found clears page: {page}");
                                     break;
                                 }
                                 page += 10;
                             }
+                            Trace.TraceInformation("Trying to find precise page");
                             while (true) {
                                 var response = Akatsuki.GetUserScores(settings.UserID, mode.Item1, mode.Item2, page);
                                 if (response.Scores != null && response.Scores.Count > 0) {
@@ -74,6 +81,11 @@ namespace osu_stats
                                     break;
                                 }
                                 page -= 1;
+                                if (page < 1) {
+                                    page = 1;
+                                    size = 0;
+                                    break;
+                                }
                             }
                             settings.ClearsPage[i] = page;
                             settings.Clears[i] = (page - 1) * 100 + size;
@@ -83,6 +95,7 @@ namespace osu_stats
                     if (settings.ClearsOld == null) {
                         settings.ClearsOld = (int[]?)settings.Clears.Clone();
                     }
+                    Trace.TraceInformation("Updating clears");
                     for (int i = 0; i < modes.Length; i++) {
                         var mode = modes[i];
                         var page = settings.ClearsPage[i];
@@ -97,7 +110,9 @@ namespace osu_stats
                             }
                             page += 1;
                         }
+                        settings.ClearsPage[i] = page;
                     }
+                    Trace.TraceInformation("Updating score rank");
                     // Check score leaderboard for score rank
                     var leaderboards = LeaderboardModel.Load();
                     var difference = DateTime.Now - leaderboards.LastUpdated;
