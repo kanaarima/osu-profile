@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Diagnostics;
 using System.Reflection;
@@ -90,31 +89,6 @@ namespace osu_stats
             }
         }
 
-    }
-
-
-    public class Settings {
-        public int UserID { get; set; }
-        public int[] ClearsPage { get; set; }
-        public int[] Clears {  get; set; }
-        public int[] ClearsOld { get; set; }
-        public int[] ScoreRank { get; set; }
-        public int[] ScoreRankOld { get; set; }
-        public int DefaultGameMode { get; set; }
-        public string NewJson { get; set; }
-        public string OldJson { get; set; }
-
-        public static Settings Load() {
-            try {
-                return JsonConvert.DeserializeObject<Settings>(File.ReadAllText("settings.json"));
-            } catch {
-                return new Settings();
-            }
-        }
-
-        public void Save() {
-            File.WriteAllText("settings.json", JsonConvert.SerializeObject(this, Formatting.Indented));
-        }
     }
 
 }

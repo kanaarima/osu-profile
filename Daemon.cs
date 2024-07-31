@@ -14,23 +14,7 @@ namespace osu_stats
 {
     internal class Daemon
     {
-        public class LeaderboardModel()
-        {
-            public DateTime LastUpdated { get; set; }
-            public static LeaderboardModel Load(bool reset=false) {
-                try {
-                    if (!reset)
-                        return JsonConvert.DeserializeObject<LeaderboardModel>(File.ReadAllText("leaderboard.json"));
-                } catch {}
-                var model = new LeaderboardModel();
-                model.LastUpdated = DateTime.FromFileTimeUtc(0);
-                return model;
-            }
-
-            public void Save() {
-                File.WriteAllText("leaderboard.json", JsonConvert.SerializeObject(this, Formatting.Indented));
-            }
-        }
+        
         public Daemon() { }
 
         public void Start() {
