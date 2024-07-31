@@ -35,6 +35,7 @@ namespace osu_stats
             var settings = Settings.Load();
             if (settings.UserID != (int)UserIDBox.Value) {
                 settings = new Settings(); // Reset settings on user switch
+                settings.Fields = new Dictionary<string, bool>();
                 LeaderboardModel.Load(true).Save(); // Reset leaderboard so score rank updates
             }
             for (int i = 0; i < FieldsBox.Items.Count; i++) {
