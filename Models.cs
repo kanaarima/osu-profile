@@ -13,6 +13,8 @@ namespace osu_stats
         public int[] ClearsPage { get; set; }
         public int[] Clears { get; set; }
         public int[] ClearsOld { get; set; }
+        public int[] Firsts { get; set; }
+        public int[] FirstsOld { get; set; }
         public int[] ScoreRank { get; set; }
         public int[] ScoreRankOld { get; set; }
         public int DefaultGameMode { get; set; }

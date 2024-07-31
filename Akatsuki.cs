@@ -272,6 +272,14 @@ namespace osu_stats
             public List<Score> Scores { get; set; }
         }
 
+        public class UserFirsts
+        {
+            [JsonProperty("total")]
+            public int Total { get; set; }
+            [JsonProperty("scores")]
+            public List<Score> Scores { get; set; }
+        }
+
         public class Leaderboard
         {
             public string Json { get; set; }
@@ -306,9 +314,16 @@ namespace osu_stats
             return json;
         }
 
-        public static UserScores GetUserScores(int user_id, int mode, int relax, int page) {
-            var responseBody = GetResponse($"https://akatsuki.gg/api/v1/users/scores/best?mode={mode}&p={page}&l=100&rx={relax}&id={user_id}");
+        public static UserScores GetUserScores(int user_id, int mode, int relax, int page, int size=100) {
+            var responseBody = GetResponse($"https://akatsuki.gg/api/v1/users/scores/best?mode={mode}&p={page}&l={size}&rx={relax}&id={user_id}");
             UserScores json = JsonConvert.DeserializeObject<UserScores>(responseBody);
+            Thread.Sleep(500);
+            return json;
+        }
+
+        public static UserFirsts GetUserFirsts(int user_id, int mode, int relax, int page, int size=100) {
+            var responseBody = GetResponse($"https://akatsuki.gg/api/v1/users/scores/first?mode={mode}&p={page}&l={size}&rx={relax}&id={user_id}");
+            UserFirsts json = JsonConvert.DeserializeObject<UserFirsts>(responseBody);
             Thread.Sleep(500);
             return json;
         }

@@ -79,10 +79,16 @@ namespace osu_stats
                     if (settings.ClearsOld == null) {
                         settings.ClearsOld = (int[]?)settings.Clears.Clone();
                     }
+                    if (settings.Firsts == null) {
+                        settings.Firsts = new int[8];
+                    }
                     Trace.TraceInformation("Updating clears");
+
                     for (int i = 0; i < modes.Length; i++) {
                         var mode = modes[i];
                         var page = settings.ClearsPage[i];
+                        var firsts = Akatsuki.GetUserFirsts(settings.UserID, mode.Item1, mode.Item2, 1, 1);
+                        settings.Firsts[i] = firsts.Total;
                         while (true) {
                             var response = Akatsuki.GetUserScores(settings.UserID, mode.Item1, mode.Item2, page);
                             if (response.Scores == null) {
@@ -95,6 +101,9 @@ namespace osu_stats
                             page += 1;
                         }
                         settings.ClearsPage[i] = page;
+                    }
+                    if (settings.FirstsOld != null) {
+                        settings.FirstsOld = settings.Firsts;
                     }
                     Trace.TraceInformation("Updating score rank");
                     // Check score leaderboard for score rank

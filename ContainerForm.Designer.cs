@@ -66,6 +66,9 @@
             AvatarBox = new PictureBox();
             InfoLabel = new Label();
             ResetButton = new Button();
+            FirstsBoxGain = new TextBox();
+            FirstsBox = new TextBox();
+            FirstsLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)AvatarBox).BeginInit();
             SuspendLayout();
             // 
@@ -520,7 +523,7 @@
             // 
             InfoLabel.AutoSize = true;
             InfoLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            InfoLabel.Location = new Point(12, 376);
+            InfoLabel.Location = new Point(12, 405);
             InfoLabel.Name = "InfoLabel";
             InfoLabel.Size = new Size(95, 17);
             InfoLabel.TabIndex = 42;
@@ -530,7 +533,7 @@
             // 
             ResetButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             ResetButton.FlatStyle = FlatStyle.Flat;
-            ResetButton.Location = new Point(261, 373);
+            ResetButton.Location = new Point(261, 402);
             ResetButton.Name = "ResetButton";
             ResetButton.Size = new Size(92, 23);
             ResetButton.TabIndex = 43;
@@ -538,12 +541,49 @@
             ResetButton.UseVisualStyleBackColor = true;
             ResetButton.Click += button1_Click;
             // 
+            // FirstsBoxGain
+            // 
+            FirstsBoxGain.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            FirstsBoxGain.BackColor = Color.FromArgb(50, 50, 50);
+            FirstsBoxGain.ForeColor = Color.White;
+            FirstsBoxGain.Location = new Point(261, 373);
+            FirstsBoxGain.Name = "FirstsBoxGain";
+            FirstsBoxGain.ReadOnly = true;
+            FirstsBoxGain.Size = new Size(92, 23);
+            FirstsBoxGain.TabIndex = 46;
+            FirstsBoxGain.TextAlign = HorizontalAlignment.Right;
+            // 
+            // FirstsBox
+            // 
+            FirstsBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            FirstsBox.BackColor = Color.FromArgb(50, 50, 50);
+            FirstsBox.ForeColor = Color.White;
+            FirstsBox.Location = new Point(118, 373);
+            FirstsBox.Name = "FirstsBox";
+            FirstsBox.ReadOnly = true;
+            FirstsBox.Size = new Size(137, 23);
+            FirstsBox.TabIndex = 45;
+            FirstsBox.TextAlign = HorizontalAlignment.Right;
+            // 
+            // FirstsLabel
+            // 
+            FirstsLabel.AutoSize = true;
+            FirstsLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            FirstsLabel.Location = new Point(12, 374);
+            FirstsLabel.Name = "FirstsLabel";
+            FirstsLabel.Size = new Size(38, 17);
+            FirstsLabel.TabIndex = 44;
+            FirstsLabel.Text = "Firsts";
+            // 
             // ContainerForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(30, 30, 30);
-            ClientSize = new Size(365, 402);
+            ClientSize = new Size(365, 486);
+            Controls.Add(FirstsBoxGain);
+            Controls.Add(FirstsBox);
+            Controls.Add(FirstsLabel);
             Controls.Add(ResetButton);
             Controls.Add(InfoLabel);
             Controls.Add(AvatarBox);
@@ -639,5 +679,8 @@
         private PictureBox AvatarBox;
         private Label InfoLabel;
         private Button ResetButton;
+        private TextBox FirstsBoxGain;
+        private TextBox FirstsBox;
+        private Label FirstsLabel;
     }
 }

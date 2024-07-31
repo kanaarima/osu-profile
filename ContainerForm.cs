@@ -31,6 +31,7 @@ namespace osu_stats
             fields.Add((PlayCountLabel, PlayCountBox, PlayCountGainBox));
             fields.Add((TotalHitsLabel, TotalHitsBox, TotalHitsGainBox));
             fields.Add((ClearsLabel, ClearsBox, ClearsBoxGain));
+            fields.Add((FirstsLabel, FirstsBox, FirstsBoxGain));
         }
 
         private void StatsUI_Load(object sender, EventArgs e) {
@@ -64,7 +65,7 @@ namespace osu_stats
                 }
                 InfoLabel.Location = new Point(InfoLabel.Location.X, locY + 2);
                 ResetButton.Location = new Point(ResetButton.Location.X, locY - 1);
-                this.Size = new Size(this.Size.Width, locY+29);
+                this.Size = new Size(this.Size.Width, locY + 29);
             }
             settings.Save();
             ReloadStats();
@@ -192,7 +193,10 @@ namespace osu_stats
             if (settings.ScoreRank != null) {
                 ScoreRankBox.Text = FormatNumber(settings.ScoreRank[mode]);
                 ScoreRankGainBox.Text = FormatGainInt(settings.ScoreRank[mode], settings.ScoreRankOld[mode]);
-
+            }
+            if (settings.Firsts != null) {
+                FirstsBox.Text = FormatNumber(settings.Firsts[mode]);
+                FirstsBoxGain.Text = FormatGainInt(settings.Firsts[mode], settings.FirstsOld[mode]);
             }
             InfoLabel.Text = $"{response_new.Username}'s {modes[mode]} session.";
         }
