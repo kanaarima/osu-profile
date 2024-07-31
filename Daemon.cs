@@ -102,7 +102,7 @@ namespace osu_stats
                         }
                         settings.ClearsPage[i] = page;
                     }
-                    if (settings.FirstsOld != null) {
+                    if (settings.FirstsOld == null) {
                         settings.FirstsOld = settings.Firsts;
                     }
                     Trace.TraceInformation("Updating score rank");
