@@ -18,6 +18,7 @@ namespace osu_stats
         public int DefaultGameMode { get; set; }
         public string NewJson { get; set; }
         public string OldJson { get; set; }
+        public Dictionary<string, bool> Fields { get; set; }
 
         public static Settings Load() {
             try {

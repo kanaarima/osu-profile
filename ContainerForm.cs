@@ -1,4 +1,5 @@
 using Newtonsoft.Json;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using static osu_stats.Akatsuki;
@@ -14,18 +15,58 @@ namespace osu_stats
         public readonly Color ForegroundColor = Color.FromArgb(130, 130, 130);
         public readonly Color ForegroundColorActivated = Color.FromArgb(170, 170, 170);
         private System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
+        public List<(Label, TextBox, TextBox)> fields;
 
         public ContainerForm() {
             InitializeComponent();
+            fields = new List<(Label, TextBox, TextBox)>();
+            fields.Add((ScoreRankLabel, ScoreRankBox, ScoreRankGainBox));
+            fields.Add((GlobalRankLabel, GlobalRankBox, GlobalRankGainBox));
+            fields.Add((CountryRankLabel, CountryRankBox, CountryRankGainBox));
+            fields.Add((RankedScoreLabel, RankedScoreBox, RankedScoreGainBox));
+            fields.Add((TotalScoreLabel, TotalScoreBox, TotalScoreGainBox));
+            fields.Add((PpLabel, PpBox, PpGainBox));
+            fields.Add((AccuracyLabel, AccuracyBox, AccuracyGainBox));
+            fields.Add((PlayTimeLabel, PlayTimeBox, PlayTimeGainBox));
+            fields.Add((PlayCountLabel, PlayCountBox, PlayCountGainBox));
+            fields.Add((TotalHitsLabel, TotalHitsBox, TotalHitsGainBox));
+            fields.Add((ClearsLabel, ClearsBox, ClearsBoxGain));
         }
 
         private void StatsUI_Load(object sender, EventArgs e) {
             var settings = Settings.Load();
-            settings.Save();
+            if (settings.Fields == null)
+                settings.Fields = new Dictionary<string, bool>();
             minBtn.FlatAppearance.BorderColor = minBtn.BackColor;
             closeBtn.FlatAppearance.BorderColor = closeBtn.BackColor;
             Daemon daemon = new Daemon();
             daemon.Start();
+            int locY = 54;
+            foreach (var field in fields) {
+                bool show = false;
+                if (settings.Fields.ContainsKey(field.Item1.Text))
+                    show = settings.Fields[field.Item1.Text];
+                else
+                    settings.Fields[field.Item1.Text] = true;
+                Trace.TraceInformation($"{field.Item1.Text} {show}");
+                if (!show) {
+                    field.Item1.Hide();
+                    field.Item2.Hide();
+                    field.Item3.Hide();
+                } else {
+                    field.Item1.Show();
+                    field.Item2.Show();
+                    field.Item3.Show();
+                    field.Item1.Location = new Point(field.Item1.Location.X, locY + 1);
+                    field.Item2.Location = new Point(field.Item2.Location.X, locY);
+                    field.Item3.Location = new Point(field.Item3.Location.X, locY);
+                    locY += 29;
+                }
+                InfoLabel.Location = new Point(InfoLabel.Location.X, locY + 2);
+                ResetButton.Location = new Point(ResetButton.Location.X, locY - 1);
+                this.Size = new Size(this.Size.Width, locY+29);
+            }
+            settings.Save();
             ReloadStats();
             try {
                 AvatarBox.Load($"https://a.akatsuki.gg/{settings.UserID}");
@@ -104,19 +145,17 @@ namespace osu_stats
             return string.Format("{0:0.00}%", gain);
         }
 
-        private string FormatPlayTime(int totalMinutes) {
-            int hours = totalMinutes / 60 / 60;
-            int minutes = totalMinutes % 60;
-            return string.Format("{0:#,##0}h ", hours) + string.Format("{0:#,##0}m", minutes);
+        private string FormatPlayTime(int totalSeconds) {
+            TimeSpan t = TimeSpan.FromSeconds(totalSeconds);
+            return string.Format("{0:#,##0}h {1:D2}m", (int)t.TotalHours, t.Minutes);
         }
 
-        private string FormatPlayTimeGain(int new_minutes, int old_minutes) {
-            int totalMinutes = new_minutes - old_minutes;
-            if (totalMinutes == 0)
+        private string FormatPlayTimeGain(int new_seconds, int old_seconds) {
+            int totalSeconds = new_seconds - old_seconds;
+            if (totalSeconds == 0)
                 return "";
-            int hours = totalMinutes / 60 / 60;
-            int minutes = totalMinutes % 60;
-            return string.Format("+{0:#,##0}h ", hours) + string.Format("{0:#,##0}m", minutes);
+            TimeSpan t = TimeSpan.FromSeconds(totalSeconds);
+            return string.Format("{0:#,##0}h {1:D2}m", (int)t.TotalHours, t.Minutes);
         }
 
         private void ReloadStats() {
@@ -146,6 +185,7 @@ namespace osu_stats
             PlayCountBox.Text = FormatNumber(new_stats[mode].Playcount);
             PlayCountGainBox.Text = FormatGainInt((int)new_stats[mode].Playcount, (int)old_stats[mode].Playcount);
             TotalHitsBox.Text = FormatNumber(new_stats[mode].TotalHits);
+            TotalHitsGainBox.Text = FormatGainInt((int)new_stats[mode].TotalHits, (int)old_stats[mode].TotalHits);
             ClearsBoxGain.Text = FormatGainInt((int)new_stats[mode].TotalHits, (int)old_stats[mode].TotalHits);
             ClearsBox.Text = FormatNumber(settings.Clears[mode]);
             ClearsBoxGain.Text = FormatGainInt(settings.Clears[mode], settings.ClearsOld[mode]);

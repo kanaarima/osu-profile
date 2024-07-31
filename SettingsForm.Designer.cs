@@ -29,12 +29,15 @@
             label1 = new Label();
             label2 = new Label();
             UserIDBox = new NumericUpDown();
+            FieldsBox = new CheckedListBox();
+            label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)UserIDBox).BeginInit();
             SuspendLayout();
             // 
             // GameModeBox
             // 
             GameModeBox.BackColor = Color.FromArgb(50, 50, 50);
+            GameModeBox.ForeColor = Color.White;
             GameModeBox.FormattingEnabled = true;
             GameModeBox.Items.AddRange(new object[] { "Standard", "Standard RX", "Standard AP", "Taiko", "Taiko RX", "Catch the Beat", "Catch the Beat RX", "Mania" });
             GameModeBox.Location = new Point(334, 11);
@@ -74,19 +77,43 @@
             UserIDBox.Size = new Size(120, 23);
             UserIDBox.TabIndex = 4;
             // 
+            // FieldsBox
+            // 
+            FieldsBox.BackColor = Color.FromArgb(50, 50, 50);
+            FieldsBox.ForeColor = Color.White;
+            FieldsBox.FormattingEnabled = true;
+            FieldsBox.Location = new Point(13, 64);
+            FieldsBox.Name = "FieldsBox";
+            FieldsBox.Size = new Size(463, 292);
+            FieldsBox.TabIndex = 5;
+            FieldsBox.Tag = "";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(12, 37);
+            label3.Name = "label3";
+            label3.Size = new Size(134, 25);
+            label3.TabIndex = 6;
+            label3.Text = "Enabled fields:";
+            // 
             // SettingsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(30, 30, 30);
-            ClientSize = new Size(487, 478);
+            ClientSize = new Size(487, 365);
+            Controls.Add(label3);
+            Controls.Add(FieldsBox);
             Controls.Add(UserIDBox);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(GameModeBox);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "SettingsForm";
-            Text = "SettingsForm";
+            Text = "Settings";
             FormClosing += SettingsForm_FormClosing;
             Load += SettingsForm_Load;
             ((System.ComponentModel.ISupportInitialize)UserIDBox).EndInit();
@@ -100,5 +127,7 @@
         private Label label1;
         private Label label2;
         private NumericUpDown UserIDBox;
+        private CheckedListBox FieldsBox;
+        private Label label3;
     }
 }

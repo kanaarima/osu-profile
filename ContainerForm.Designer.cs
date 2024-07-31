@@ -30,42 +30,42 @@
             minimiseBtn = new Button();
             minBtn = new Button();
             closeBtn = new Button();
-            label4 = new Label();
+            ScoreRankLabel = new Label();
             ScoreRankBox = new TextBox();
             ScoreRankGainBox = new TextBox();
             GlobalRankGainBox = new TextBox();
             GlobalRankBox = new TextBox();
-            label5 = new Label();
+            GlobalRankLabel = new Label();
             CountryRankGainBox = new TextBox();
             CountryRankBox = new TextBox();
-            label6 = new Label();
+            CountryRankLabel = new Label();
             PpGainBox = new TextBox();
             PpBox = new TextBox();
-            label7 = new Label();
+            PpLabel = new Label();
             TotalScoreGainBox = new TextBox();
             TotalScoreBox = new TextBox();
-            label8 = new Label();
+            TotalScoreLabel = new Label();
             RankedScoreGainBox = new TextBox();
             RankedScoreBox = new TextBox();
-            label9 = new Label();
+            RankedScoreLabel = new Label();
             ClearsBoxGain = new TextBox();
             ClearsBox = new TextBox();
-            label11 = new Label();
-            TotalHitGainBox = new TextBox();
+            ClearsLabel = new Label();
+            TotalHitsGainBox = new TextBox();
             TotalHitsBox = new TextBox();
-            label12 = new Label();
+            TotalHitsLabel = new Label();
             PlayCountGainBox = new TextBox();
             PlayCountBox = new TextBox();
-            label13 = new Label();
+            PlayCountLabel = new Label();
             PlayTimeGainBox = new TextBox();
             PlayTimeBox = new TextBox();
-            label14 = new Label();
+            PlayTimeLabel = new Label();
             AccuracyGainBox = new TextBox();
             AccuracyBox = new TextBox();
-            label15 = new Label();
+            AccuracyLabel = new Label();
             AvatarBox = new PictureBox();
             InfoLabel = new Label();
-            button1 = new Button();
+            ResetButton = new Button();
             ((System.ComponentModel.ISupportInitialize)AvatarBox).BeginInit();
             SuspendLayout();
             // 
@@ -134,15 +134,15 @@
             closeBtn.UseVisualStyleBackColor = false;
             closeBtn.Click += closeBtn_Click;
             // 
-            // label4
+            // ScoreRankLabel
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(12, 55);
-            label4.Name = "label4";
-            label4.Size = new Size(73, 17);
-            label4.TabIndex = 7;
-            label4.Text = "Score Rank";
+            ScoreRankLabel.AutoSize = true;
+            ScoreRankLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            ScoreRankLabel.Location = new Point(12, 55);
+            ScoreRankLabel.Name = "ScoreRankLabel";
+            ScoreRankLabel.Size = new Size(73, 17);
+            ScoreRankLabel.TabIndex = 7;
+            ScoreRankLabel.Text = "Score Rank";
             // 
             // ScoreRankBox
             // 
@@ -192,15 +192,15 @@
             GlobalRankBox.TabIndex = 11;
             GlobalRankBox.TextAlign = HorizontalAlignment.Right;
             // 
-            // label5
+            // GlobalRankLabel
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(12, 84);
-            label5.Name = "label5";
-            label5.Size = new Size(78, 17);
-            label5.TabIndex = 10;
-            label5.Text = "Global Rank";
+            GlobalRankLabel.AutoSize = true;
+            GlobalRankLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            GlobalRankLabel.Location = new Point(12, 84);
+            GlobalRankLabel.Name = "GlobalRankLabel";
+            GlobalRankLabel.Size = new Size(78, 17);
+            GlobalRankLabel.TabIndex = 10;
+            GlobalRankLabel.Text = "Global Rank";
             // 
             // CountryRankGainBox
             // 
@@ -226,15 +226,15 @@
             CountryRankBox.TabIndex = 14;
             CountryRankBox.TextAlign = HorizontalAlignment.Right;
             // 
-            // label6
+            // CountryRankLabel
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.Location = new Point(12, 113);
-            label6.Name = "label6";
-            label6.Size = new Size(85, 17);
-            label6.TabIndex = 13;
-            label6.Text = "Country Rank";
+            CountryRankLabel.AutoSize = true;
+            CountryRankLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            CountryRankLabel.Location = new Point(12, 113);
+            CountryRankLabel.Name = "CountryRankLabel";
+            CountryRankLabel.Size = new Size(85, 17);
+            CountryRankLabel.TabIndex = 13;
+            CountryRankLabel.Text = "Country Rank";
             // 
             // PpGainBox
             // 
@@ -260,15 +260,15 @@
             PpBox.TabIndex = 23;
             PpBox.TextAlign = HorizontalAlignment.Right;
             // 
-            // label7
+            // PpLabel
             // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(12, 200);
-            label7.Name = "label7";
-            label7.Size = new Size(82, 17);
-            label7.TabIndex = 22;
-            label7.Text = "Performance";
+            PpLabel.AutoSize = true;
+            PpLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            PpLabel.Location = new Point(12, 200);
+            PpLabel.Name = "PpLabel";
+            PpLabel.Size = new Size(82, 17);
+            PpLabel.TabIndex = 22;
+            PpLabel.Text = "Performance";
             // 
             // TotalScoreGainBox
             // 
@@ -294,15 +294,15 @@
             TotalScoreBox.TabIndex = 20;
             TotalScoreBox.TextAlign = HorizontalAlignment.Right;
             // 
-            // label8
+            // TotalScoreLabel
             // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label8.Location = new Point(12, 171);
-            label8.Name = "label8";
-            label8.Size = new Size(73, 17);
-            label8.TabIndex = 19;
-            label8.Text = "Total Score";
+            TotalScoreLabel.AutoSize = true;
+            TotalScoreLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            TotalScoreLabel.Location = new Point(12, 171);
+            TotalScoreLabel.Name = "TotalScoreLabel";
+            TotalScoreLabel.Size = new Size(73, 17);
+            TotalScoreLabel.TabIndex = 19;
+            TotalScoreLabel.Text = "Total Score";
             // 
             // RankedScoreGainBox
             // 
@@ -328,15 +328,15 @@
             RankedScoreBox.TabIndex = 17;
             RankedScoreBox.TextAlign = HorizontalAlignment.Right;
             // 
-            // label9
+            // RankedScoreLabel
             // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label9.Location = new Point(12, 142);
-            label9.Name = "label9";
-            label9.Size = new Size(88, 17);
-            label9.TabIndex = 16;
-            label9.Text = "Ranked Score";
+            RankedScoreLabel.AutoSize = true;
+            RankedScoreLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            RankedScoreLabel.Location = new Point(12, 142);
+            RankedScoreLabel.Name = "RankedScoreLabel";
+            RankedScoreLabel.Size = new Size(88, 17);
+            RankedScoreLabel.TabIndex = 16;
+            RankedScoreLabel.Text = "Ranked Score";
             // 
             // ClearsBoxGain
             // 
@@ -362,27 +362,27 @@
             ClearsBox.TabIndex = 38;
             ClearsBox.TextAlign = HorizontalAlignment.Right;
             // 
-            // label11
+            // ClearsLabel
             // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label11.Location = new Point(12, 345);
-            label11.Name = "label11";
-            label11.Size = new Size(44, 17);
-            label11.TabIndex = 37;
-            label11.Text = "Clears";
+            ClearsLabel.AutoSize = true;
+            ClearsLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            ClearsLabel.Location = new Point(12, 345);
+            ClearsLabel.Name = "ClearsLabel";
+            ClearsLabel.Size = new Size(44, 17);
+            ClearsLabel.TabIndex = 37;
+            ClearsLabel.Text = "Clears";
             // 
-            // TotalHitGainBox
+            // TotalHitsGainBox
             // 
-            TotalHitGainBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            TotalHitGainBox.BackColor = Color.FromArgb(50, 50, 50);
-            TotalHitGainBox.ForeColor = Color.White;
-            TotalHitGainBox.Location = new Point(261, 315);
-            TotalHitGainBox.Name = "TotalHitGainBox";
-            TotalHitGainBox.ReadOnly = true;
-            TotalHitGainBox.Size = new Size(92, 23);
-            TotalHitGainBox.TabIndex = 36;
-            TotalHitGainBox.TextAlign = HorizontalAlignment.Right;
+            TotalHitsGainBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            TotalHitsGainBox.BackColor = Color.FromArgb(50, 50, 50);
+            TotalHitsGainBox.ForeColor = Color.White;
+            TotalHitsGainBox.Location = new Point(261, 315);
+            TotalHitsGainBox.Name = "TotalHitsGainBox";
+            TotalHitsGainBox.ReadOnly = true;
+            TotalHitsGainBox.Size = new Size(92, 23);
+            TotalHitsGainBox.TabIndex = 36;
+            TotalHitsGainBox.TextAlign = HorizontalAlignment.Right;
             // 
             // TotalHitsBox
             // 
@@ -396,15 +396,15 @@
             TotalHitsBox.TabIndex = 35;
             TotalHitsBox.TextAlign = HorizontalAlignment.Right;
             // 
-            // label12
+            // TotalHitsLabel
             // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label12.Location = new Point(12, 316);
-            label12.Name = "label12";
-            label12.Size = new Size(62, 17);
-            label12.TabIndex = 34;
-            label12.Text = "Total Hits";
+            TotalHitsLabel.AutoSize = true;
+            TotalHitsLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            TotalHitsLabel.Location = new Point(12, 316);
+            TotalHitsLabel.Name = "TotalHitsLabel";
+            TotalHitsLabel.Size = new Size(62, 17);
+            TotalHitsLabel.TabIndex = 34;
+            TotalHitsLabel.Text = "Total Hits";
             // 
             // PlayCountGainBox
             // 
@@ -430,15 +430,15 @@
             PlayCountBox.TabIndex = 32;
             PlayCountBox.TextAlign = HorizontalAlignment.Right;
             // 
-            // label13
+            // PlayCountLabel
             // 
-            label13.AutoSize = true;
-            label13.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label13.Location = new Point(12, 287);
-            label13.Name = "label13";
-            label13.Size = new Size(69, 17);
-            label13.TabIndex = 31;
-            label13.Text = "Play Count";
+            PlayCountLabel.AutoSize = true;
+            PlayCountLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            PlayCountLabel.Location = new Point(12, 287);
+            PlayCountLabel.Name = "PlayCountLabel";
+            PlayCountLabel.Size = new Size(69, 17);
+            PlayCountLabel.TabIndex = 31;
+            PlayCountLabel.Text = "Play Count";
             // 
             // PlayTimeGainBox
             // 
@@ -464,15 +464,15 @@
             PlayTimeBox.TabIndex = 29;
             PlayTimeBox.TextAlign = HorizontalAlignment.Right;
             // 
-            // label14
+            // PlayTimeLabel
             // 
-            label14.AutoSize = true;
-            label14.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label14.Location = new Point(12, 258);
-            label14.Name = "label14";
-            label14.Size = new Size(63, 17);
-            label14.TabIndex = 28;
-            label14.Text = "Play Time";
+            PlayTimeLabel.AutoSize = true;
+            PlayTimeLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            PlayTimeLabel.Location = new Point(12, 258);
+            PlayTimeLabel.Name = "PlayTimeLabel";
+            PlayTimeLabel.Size = new Size(63, 17);
+            PlayTimeLabel.TabIndex = 28;
+            PlayTimeLabel.Text = "Play Time";
             // 
             // AccuracyGainBox
             // 
@@ -498,15 +498,15 @@
             AccuracyBox.TabIndex = 26;
             AccuracyBox.TextAlign = HorizontalAlignment.Right;
             // 
-            // label15
+            // AccuracyLabel
             // 
-            label15.AutoSize = true;
-            label15.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label15.Location = new Point(12, 229);
-            label15.Name = "label15";
-            label15.Size = new Size(59, 17);
-            label15.TabIndex = 25;
-            label15.Text = "Accuracy";
+            AccuracyLabel.AutoSize = true;
+            AccuracyLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            AccuracyLabel.Location = new Point(12, 229);
+            AccuracyLabel.Name = "AccuracyLabel";
+            AccuracyLabel.Size = new Size(59, 17);
+            AccuracyLabel.TabIndex = 25;
+            AccuracyLabel.Text = "Accuracy";
             // 
             // AvatarBox
             // 
@@ -522,21 +522,21 @@
             InfoLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             InfoLabel.Location = new Point(12, 376);
             InfoLabel.Name = "InfoLabel";
-            InfoLabel.Size = new Size(142, 17);
+            InfoLabel.Size = new Size(95, 17);
             InfoLabel.TabIndex = 42;
-            InfoLabel.Text = "Fetching informations...";
+            InfoLabel.Text = "Fetching data...";
             // 
-            // button1
+            // ResetButton
             // 
-            button1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Location = new Point(261, 373);
-            button1.Name = "button1";
-            button1.Size = new Size(92, 23);
-            button1.TabIndex = 43;
-            button1.Text = "Reset";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            ResetButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            ResetButton.FlatStyle = FlatStyle.Flat;
+            ResetButton.Location = new Point(261, 373);
+            ResetButton.Name = "ResetButton";
+            ResetButton.Size = new Size(92, 23);
+            ResetButton.TabIndex = 43;
+            ResetButton.Text = "Reset";
+            ResetButton.UseVisualStyleBackColor = true;
+            ResetButton.Click += button1_Click;
             // 
             // ContainerForm
             // 
@@ -544,42 +544,42 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(30, 30, 30);
             ClientSize = new Size(365, 402);
-            Controls.Add(button1);
+            Controls.Add(ResetButton);
             Controls.Add(InfoLabel);
             Controls.Add(AvatarBox);
             Controls.Add(ClearsBoxGain);
             Controls.Add(ClearsBox);
-            Controls.Add(label11);
-            Controls.Add(TotalHitGainBox);
+            Controls.Add(ClearsLabel);
+            Controls.Add(TotalHitsGainBox);
             Controls.Add(TotalHitsBox);
-            Controls.Add(label12);
+            Controls.Add(TotalHitsLabel);
             Controls.Add(PlayCountGainBox);
             Controls.Add(PlayCountBox);
-            Controls.Add(label13);
+            Controls.Add(PlayCountLabel);
             Controls.Add(PlayTimeGainBox);
             Controls.Add(PlayTimeBox);
-            Controls.Add(label14);
+            Controls.Add(PlayTimeLabel);
             Controls.Add(AccuracyGainBox);
             Controls.Add(AccuracyBox);
-            Controls.Add(label15);
+            Controls.Add(AccuracyLabel);
             Controls.Add(PpGainBox);
             Controls.Add(PpBox);
-            Controls.Add(label7);
+            Controls.Add(PpLabel);
             Controls.Add(TotalScoreGainBox);
             Controls.Add(TotalScoreBox);
-            Controls.Add(label8);
+            Controls.Add(TotalScoreLabel);
             Controls.Add(RankedScoreGainBox);
             Controls.Add(RankedScoreBox);
-            Controls.Add(label9);
+            Controls.Add(RankedScoreLabel);
             Controls.Add(CountryRankGainBox);
             Controls.Add(CountryRankBox);
-            Controls.Add(label6);
+            Controls.Add(CountryRankLabel);
             Controls.Add(GlobalRankGainBox);
             Controls.Add(GlobalRankBox);
-            Controls.Add(label5);
+            Controls.Add(GlobalRankLabel);
             Controls.Add(ScoreRankGainBox);
             Controls.Add(ScoreRankBox);
-            Controls.Add(label4);
+            Controls.Add(ScoreRankLabel);
             Controls.Add(closeBtn);
             Controls.Add(minBtn);
             Controls.Add(minimiseBtn);
@@ -603,41 +603,41 @@
         private Button minimiseBtn;
         private Button minBtn;
         private Button closeBtn;
-        private Label label4;
+        private Label ScoreRankLabel;
         private TextBox ScoreRankBox;
         private TextBox ScoreRankGainBox;
         private TextBox GlobalRankGainBox;
         private TextBox GlobalRankBox;
-        private Label label5;
+        private Label GlobalRankLabel;
         private TextBox CountryRankGainBox;
         private TextBox CountryRankBox;
-        private Label label6;
+        private Label CountryRankLabel;
         private TextBox PpGainBox;
         private TextBox PpBox;
-        private Label label7;
+        private Label PpLabel;
         private TextBox TotalScoreGainBox;
         private TextBox TotalScoreBox;
-        private Label label8;
+        private Label TotalScoreLabel;
         private TextBox RankedScoreGainBox;
         private TextBox RankedScoreBox;
-        private Label label9;
+        private Label RankedScoreLabel;
         private TextBox ClearsBoxGain;
         private TextBox ClearsBox;
-        private Label label11;
-        private TextBox TotalHitGainBox;
+        private Label ClearsLabel;
+        private TextBox TotalHitsGainBox;
         private TextBox TotalHitsBox;
-        private Label label12;
+        private Label TotalHitsLabel;
         private TextBox PlayCountGainBox;
         private TextBox PlayCountBox;
-        private Label label13;
+        private Label PlayCountLabel;
         private TextBox PlayTimeGainBox;
         private TextBox PlayTimeBox;
-        private Label label14;
+        private Label PlayTimeLabel;
         private TextBox AccuracyGainBox;
         private TextBox AccuracyBox;
-        private Label label15;
+        private Label AccuracyLabel;
         private PictureBox AvatarBox;
         private Label InfoLabel;
-        private Button button1;
+        private Button ResetButton;
     }
 }
