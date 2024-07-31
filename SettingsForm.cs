@@ -23,6 +23,7 @@ namespace osu_stats
             var settings = Settings.Load();
             GameModeBox.SelectedIndex = settings.DefaultGameMode;
             UserIDBox.Value = settings.UserID;
+            PlaytimeOffset.Value = settings.StdRxPlayTimeOffset;
             foreach (var key in settings.Fields.Keys) {
                 FieldsBox.Items.Add(key, settings.Fields[key]);
             }
@@ -41,6 +42,7 @@ namespace osu_stats
             for (int i = 0; i < FieldsBox.Items.Count; i++) {
                 settings.Fields[FieldsBox.Items[i].ToString()] = FieldsBox.GetItemChecked(i);
             }
+            settings.StdRxPlayTimeOffset = (int)PlaytimeOffset.Value;
             settings.DefaultGameMode = GameModeBox.SelectedIndex;
             settings.UserID = (int)UserIDBox.Value;
             settings.Save();

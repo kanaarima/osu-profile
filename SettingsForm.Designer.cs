@@ -31,7 +31,10 @@
             UserIDBox = new NumericUpDown();
             FieldsBox = new CheckedListBox();
             label3 = new Label();
+            label4 = new Label();
+            PlaytimeOffset = new NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)UserIDBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PlaytimeOffset).BeginInit();
             SuspendLayout();
             // 
             // GameModeBox
@@ -82,9 +85,9 @@
             FieldsBox.BackColor = Color.FromArgb(50, 50, 50);
             FieldsBox.ForeColor = Color.White;
             FieldsBox.FormattingEnabled = true;
-            FieldsBox.Location = new Point(13, 64);
+            FieldsBox.Location = new Point(13, 82);
             FieldsBox.Name = "FieldsBox";
-            FieldsBox.Size = new Size(463, 292);
+            FieldsBox.Size = new Size(463, 274);
             FieldsBox.TabIndex = 5;
             FieldsBox.Tag = "";
             // 
@@ -99,12 +102,35 @@
             label3.TabIndex = 6;
             label3.Text = "Enabled fields:";
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(165, 41);
+            label4.Name = "label4";
+            label4.Size = new Size(163, 25);
+            label4.TabIndex = 8;
+            label4.Text = "RX playtime offset";
+            // 
+            // PlaytimeOffset
+            // 
+            PlaytimeOffset.BackColor = Color.FromArgb(50, 50, 50);
+            PlaytimeOffset.ForeColor = Color.White;
+            PlaytimeOffset.Location = new Point(334, 43);
+            PlaytimeOffset.Maximum = new decimal(new int[] { 1316134912, 2328, 0, 0 });
+            PlaytimeOffset.Name = "PlaytimeOffset";
+            PlaytimeOffset.Size = new Size(141, 23);
+            PlaytimeOffset.TabIndex = 9;
+            // 
             // SettingsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(30, 30, 30);
             ClientSize = new Size(487, 365);
+            Controls.Add(PlaytimeOffset);
+            Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(FieldsBox);
             Controls.Add(UserIDBox);
@@ -117,6 +143,7 @@
             FormClosing += SettingsForm_FormClosing;
             Load += SettingsForm_Load;
             ((System.ComponentModel.ISupportInitialize)UserIDBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PlaytimeOffset).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -129,5 +156,7 @@
         private NumericUpDown UserIDBox;
         private CheckedListBox FieldsBox;
         private Label label3;
+        private Label label4;
+        private NumericUpDown PlaytimeOffset;
     }
 }

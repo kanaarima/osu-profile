@@ -69,6 +69,30 @@
             FirstsBoxGain = new TextBox();
             FirstsBox = new TextBox();
             FirstsLabel = new Label();
+            SGainBox = new TextBox();
+            SBox = new TextBox();
+            SLabel = new Label();
+            SHGainBox = new TextBox();
+            SHBox = new TextBox();
+            SHLabel = new Label();
+            SSGainBox = new TextBox();
+            SSBox = new TextBox();
+            SSLabel = new Label();
+            SSHGainBox = new TextBox();
+            SSHBox = new TextBox();
+            SSHLabel = new Label();
+            BGainBox = new TextBox();
+            BBox = new TextBox();
+            BLabel = new Label();
+            AGainBox = new TextBox();
+            ABox = new TextBox();
+            ALabel = new Label();
+            DGainBox = new TextBox();
+            DBox = new TextBox();
+            DLabel = new Label();
+            CGainBox = new TextBox();
+            CBox = new TextBox();
+            CLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)AvatarBox).BeginInit();
             SuspendLayout();
             // 
@@ -523,7 +547,7 @@
             // 
             InfoLabel.AutoSize = true;
             InfoLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            InfoLabel.Location = new Point(12, 405);
+            InfoLabel.Location = new Point(12, 644);
             InfoLabel.Name = "InfoLabel";
             InfoLabel.Size = new Size(95, 17);
             InfoLabel.TabIndex = 42;
@@ -533,7 +557,7 @@
             // 
             ResetButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             ResetButton.FlatStyle = FlatStyle.Flat;
-            ResetButton.Location = new Point(261, 402);
+            ResetButton.Location = new Point(261, 641);
             ResetButton.Name = "ResetButton";
             ResetButton.Size = new Size(92, 23);
             ResetButton.TabIndex = 43;
@@ -575,12 +599,308 @@
             FirstsLabel.TabIndex = 44;
             FirstsLabel.Text = "Firsts";
             // 
+            // SGainBox
+            // 
+            SGainBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            SGainBox.BackColor = Color.FromArgb(50, 50, 50);
+            SGainBox.ForeColor = Color.White;
+            SGainBox.Location = new Point(261, 490);
+            SGainBox.Name = "SGainBox";
+            SGainBox.ReadOnly = true;
+            SGainBox.Size = new Size(92, 23);
+            SGainBox.TabIndex = 58;
+            SGainBox.TextAlign = HorizontalAlignment.Right;
+            // 
+            // SBox
+            // 
+            SBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            SBox.BackColor = Color.FromArgb(50, 50, 50);
+            SBox.ForeColor = Color.White;
+            SBox.Location = new Point(118, 490);
+            SBox.Name = "SBox";
+            SBox.ReadOnly = true;
+            SBox.Size = new Size(137, 23);
+            SBox.TabIndex = 57;
+            SBox.TextAlign = HorizontalAlignment.Right;
+            // 
+            // SLabel
+            // 
+            SLabel.AutoSize = true;
+            SLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            SLabel.Location = new Point(12, 491);
+            SLabel.Name = "SLabel";
+            SLabel.Size = new Size(47, 17);
+            SLabel.TabIndex = 56;
+            SLabel.Text = "Rank S";
+            // 
+            // SHGainBox
+            // 
+            SHGainBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            SHGainBox.BackColor = Color.FromArgb(50, 50, 50);
+            SHGainBox.ForeColor = Color.White;
+            SHGainBox.Location = new Point(261, 461);
+            SHGainBox.Name = "SHGainBox";
+            SHGainBox.ReadOnly = true;
+            SHGainBox.Size = new Size(92, 23);
+            SHGainBox.TabIndex = 55;
+            SHGainBox.TextAlign = HorizontalAlignment.Right;
+            // 
+            // SHBox
+            // 
+            SHBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            SHBox.BackColor = Color.FromArgb(50, 50, 50);
+            SHBox.ForeColor = Color.White;
+            SHBox.Location = new Point(118, 461);
+            SHBox.Name = "SHBox";
+            SHBox.ReadOnly = true;
+            SHBox.Size = new Size(137, 23);
+            SHBox.TabIndex = 54;
+            SHBox.TextAlign = HorizontalAlignment.Right;
+            // 
+            // SHLabel
+            // 
+            SHLabel.AutoSize = true;
+            SHLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            SHLabel.Location = new Point(12, 462);
+            SHLabel.Name = "SHLabel";
+            SHLabel.Size = new Size(56, 17);
+            SHLabel.TabIndex = 53;
+            SHLabel.Text = "Rank SH";
+            // 
+            // SSGainBox
+            // 
+            SSGainBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            SSGainBox.BackColor = Color.FromArgb(50, 50, 50);
+            SSGainBox.ForeColor = Color.White;
+            SSGainBox.Location = new Point(261, 432);
+            SSGainBox.Name = "SSGainBox";
+            SSGainBox.ReadOnly = true;
+            SSGainBox.Size = new Size(92, 23);
+            SSGainBox.TabIndex = 52;
+            SSGainBox.TextAlign = HorizontalAlignment.Right;
+            // 
+            // SSBox
+            // 
+            SSBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            SSBox.BackColor = Color.FromArgb(50, 50, 50);
+            SSBox.ForeColor = Color.White;
+            SSBox.Location = new Point(118, 432);
+            SSBox.Name = "SSBox";
+            SSBox.ReadOnly = true;
+            SSBox.Size = new Size(137, 23);
+            SSBox.TabIndex = 51;
+            SSBox.TextAlign = HorizontalAlignment.Right;
+            // 
+            // SSLabel
+            // 
+            SSLabel.AutoSize = true;
+            SSLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            SSLabel.Location = new Point(12, 433);
+            SSLabel.Name = "SSLabel";
+            SSLabel.Size = new Size(54, 17);
+            SSLabel.TabIndex = 50;
+            SSLabel.Text = "Rank SS";
+            // 
+            // SSHGainBox
+            // 
+            SSHGainBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            SSHGainBox.BackColor = Color.FromArgb(50, 50, 50);
+            SSHGainBox.ForeColor = Color.White;
+            SSHGainBox.Location = new Point(261, 403);
+            SSHGainBox.Name = "SSHGainBox";
+            SSHGainBox.ReadOnly = true;
+            SSHGainBox.Size = new Size(92, 23);
+            SSHGainBox.TabIndex = 49;
+            SSHGainBox.TextAlign = HorizontalAlignment.Right;
+            // 
+            // SSHBox
+            // 
+            SSHBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            SSHBox.BackColor = Color.FromArgb(50, 50, 50);
+            SSHBox.ForeColor = Color.White;
+            SSHBox.Location = new Point(118, 403);
+            SSHBox.Name = "SSHBox";
+            SSHBox.ReadOnly = true;
+            SSHBox.Size = new Size(137, 23);
+            SSHBox.TabIndex = 48;
+            SSHBox.TextAlign = HorizontalAlignment.Right;
+            // 
+            // SSHLabel
+            // 
+            SSHLabel.AutoSize = true;
+            SSHLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            SSHLabel.Location = new Point(12, 404);
+            SSHLabel.Name = "SSHLabel";
+            SSHLabel.Size = new Size(63, 17);
+            SSHLabel.TabIndex = 47;
+            SSHLabel.Text = "Rank SSH";
+            // 
+            // BGainBox
+            // 
+            BGainBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            BGainBox.BackColor = Color.FromArgb(50, 50, 50);
+            BGainBox.ForeColor = Color.White;
+            BGainBox.Location = new Point(261, 545);
+            BGainBox.Name = "BGainBox";
+            BGainBox.ReadOnly = true;
+            BGainBox.Size = new Size(92, 23);
+            BGainBox.TabIndex = 64;
+            BGainBox.TextAlign = HorizontalAlignment.Right;
+            // 
+            // BBox
+            // 
+            BBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            BBox.BackColor = Color.FromArgb(50, 50, 50);
+            BBox.ForeColor = Color.White;
+            BBox.Location = new Point(118, 545);
+            BBox.Name = "BBox";
+            BBox.ReadOnly = true;
+            BBox.Size = new Size(137, 23);
+            BBox.TabIndex = 63;
+            BBox.TextAlign = HorizontalAlignment.Right;
+            // 
+            // BLabel
+            // 
+            BLabel.AutoSize = true;
+            BLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            BLabel.Location = new Point(12, 546);
+            BLabel.Name = "BLabel";
+            BLabel.Size = new Size(47, 17);
+            BLabel.TabIndex = 62;
+            BLabel.Text = "Rank B";
+            // 
+            // AGainBox
+            // 
+            AGainBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            AGainBox.BackColor = Color.FromArgb(50, 50, 50);
+            AGainBox.ForeColor = Color.White;
+            AGainBox.Location = new Point(261, 516);
+            AGainBox.Name = "AGainBox";
+            AGainBox.ReadOnly = true;
+            AGainBox.Size = new Size(92, 23);
+            AGainBox.TabIndex = 61;
+            AGainBox.TextAlign = HorizontalAlignment.Right;
+            // 
+            // ABox
+            // 
+            ABox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            ABox.BackColor = Color.FromArgb(50, 50, 50);
+            ABox.ForeColor = Color.White;
+            ABox.Location = new Point(118, 516);
+            ABox.Name = "ABox";
+            ABox.ReadOnly = true;
+            ABox.Size = new Size(137, 23);
+            ABox.TabIndex = 60;
+            ABox.TextAlign = HorizontalAlignment.Right;
+            // 
+            // ALabel
+            // 
+            ALabel.AutoSize = true;
+            ALabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            ALabel.Location = new Point(12, 517);
+            ALabel.Name = "ALabel";
+            ALabel.Size = new Size(48, 17);
+            ALabel.TabIndex = 59;
+            ALabel.Text = "Rank A";
+            // 
+            // DGainBox
+            // 
+            DGainBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            DGainBox.BackColor = Color.FromArgb(50, 50, 50);
+            DGainBox.ForeColor = Color.White;
+            DGainBox.Location = new Point(261, 604);
+            DGainBox.Name = "DGainBox";
+            DGainBox.ReadOnly = true;
+            DGainBox.Size = new Size(92, 23);
+            DGainBox.TabIndex = 70;
+            DGainBox.TextAlign = HorizontalAlignment.Right;
+            // 
+            // DBox
+            // 
+            DBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            DBox.BackColor = Color.FromArgb(50, 50, 50);
+            DBox.ForeColor = Color.White;
+            DBox.Location = new Point(118, 604);
+            DBox.Name = "DBox";
+            DBox.ReadOnly = true;
+            DBox.Size = new Size(137, 23);
+            DBox.TabIndex = 69;
+            DBox.TextAlign = HorizontalAlignment.Right;
+            // 
+            // DLabel
+            // 
+            DLabel.AutoSize = true;
+            DLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            DLabel.Location = new Point(12, 605);
+            DLabel.Name = "DLabel";
+            DLabel.Size = new Size(49, 17);
+            DLabel.TabIndex = 68;
+            DLabel.Text = "Rank D";
+            // 
+            // CGainBox
+            // 
+            CGainBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            CGainBox.BackColor = Color.FromArgb(50, 50, 50);
+            CGainBox.ForeColor = Color.White;
+            CGainBox.Location = new Point(261, 575);
+            CGainBox.Name = "CGainBox";
+            CGainBox.ReadOnly = true;
+            CGainBox.Size = new Size(92, 23);
+            CGainBox.TabIndex = 67;
+            CGainBox.TextAlign = HorizontalAlignment.Right;
+            // 
+            // CBox
+            // 
+            CBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            CBox.BackColor = Color.FromArgb(50, 50, 50);
+            CBox.ForeColor = Color.White;
+            CBox.Location = new Point(118, 575);
+            CBox.Name = "CBox";
+            CBox.ReadOnly = true;
+            CBox.Size = new Size(137, 23);
+            CBox.TabIndex = 66;
+            CBox.TextAlign = HorizontalAlignment.Right;
+            // 
+            // CLabel
+            // 
+            CLabel.AutoSize = true;
+            CLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            CLabel.Location = new Point(12, 576);
+            CLabel.Name = "CLabel";
+            CLabel.Size = new Size(48, 17);
+            CLabel.TabIndex = 65;
+            CLabel.Text = "Rank C";
+            // 
             // ContainerForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(30, 30, 30);
-            ClientSize = new Size(365, 486);
+            ClientSize = new Size(365, 721);
+            Controls.Add(DGainBox);
+            Controls.Add(DBox);
+            Controls.Add(DLabel);
+            Controls.Add(CGainBox);
+            Controls.Add(CBox);
+            Controls.Add(CLabel);
+            Controls.Add(BGainBox);
+            Controls.Add(BBox);
+            Controls.Add(BLabel);
+            Controls.Add(AGainBox);
+            Controls.Add(ABox);
+            Controls.Add(ALabel);
+            Controls.Add(SGainBox);
+            Controls.Add(SBox);
+            Controls.Add(SLabel);
+            Controls.Add(SHGainBox);
+            Controls.Add(SHBox);
+            Controls.Add(SHLabel);
+            Controls.Add(SSGainBox);
+            Controls.Add(SSBox);
+            Controls.Add(SSLabel);
+            Controls.Add(SSHGainBox);
+            Controls.Add(SSHBox);
+            Controls.Add(SSHLabel);
             Controls.Add(FirstsBoxGain);
             Controls.Add(FirstsBox);
             Controls.Add(FirstsLabel);
@@ -682,5 +1002,29 @@
         private TextBox FirstsBoxGain;
         private TextBox FirstsBox;
         private Label FirstsLabel;
+        private TextBox SGainBox;
+        private TextBox SBox;
+        private Label SLabel;
+        private TextBox SHGainBox;
+        private TextBox SHBox;
+        private Label SHLabel;
+        private TextBox SSGainBox;
+        private TextBox SSBox;
+        private Label SSLabel;
+        private TextBox SSHGainBox;
+        private TextBox SSHBox;
+        private Label SSHLabel;
+        private TextBox BGainBox;
+        private TextBox BBox;
+        private Label BLabel;
+        private TextBox AGainBox;
+        private TextBox ABox;
+        private Label ALabel;
+        private TextBox DGainBox;
+        private TextBox DBox;
+        private Label DLabel;
+        private TextBox CGainBox;
+        private TextBox CBox;
+        private Label CLabel;
     }
 }

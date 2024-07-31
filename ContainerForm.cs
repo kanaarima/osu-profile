@@ -32,6 +32,14 @@ namespace osu_stats
             fields.Add((TotalHitsLabel, TotalHitsBox, TotalHitsGainBox));
             fields.Add((ClearsLabel, ClearsBox, ClearsBoxGain));
             fields.Add((FirstsLabel, FirstsBox, FirstsBoxGain));
+            fields.Add((SSHLabel, SSHBox, SSHGainBox));
+            fields.Add((SSLabel, SSBox, SSGainBox));
+            fields.Add((SHLabel, SHBox, SHGainBox));
+            fields.Add((SLabel, SBox, SGainBox));
+            fields.Add((ALabel, ABox, AGainBox));
+            fields.Add((BLabel, BBox, BGainBox));
+            fields.Add((CLabel, CBox, CGainBox));
+            fields.Add((DLabel, DBox, DGainBox));
         }
 
         private void StatsUI_Load(object sender, EventArgs e) {
@@ -169,6 +177,7 @@ namespace osu_stats
             var response_old = JsonConvert.DeserializeObject<UserInfo>(settings.OldJson);
             var new_stats = ReorganiseStats(response_new);
             var old_stats = ReorganiseStats(response_old);
+            var playtimeoffset = mode == 1 ? settings.StdRxPlayTimeOffset : 0;
             GlobalRankBox.Text = FormatNumber(new_stats[mode].GlobalLeaderboardRank);
             GlobalRankGainBox.Text = FormatGainInt(new_stats[mode].GlobalLeaderboardRank, old_stats[mode].GlobalLeaderboardRank, true);
             CountryRankBox.Text = FormatNumber(new_stats[mode].CountryLeaderboardRank);
@@ -181,7 +190,7 @@ namespace osu_stats
             PpGainBox.Text = FormatGainInt((int)new_stats[mode].Pp, (int)old_stats[mode].Pp);
             AccuracyBox.Text = FormatAccuracy(new_stats[mode].Accuracy);
             AccuracyGainBox.Text = FormatAccuracyGain(new_stats[mode].Accuracy, old_stats[mode].Accuracy);
-            PlayTimeBox.Text = FormatPlayTime(new_stats[mode].Playtime);
+            PlayTimeBox.Text = FormatPlayTime(new_stats[mode].Playtime-playtimeoffset);
             PlayTimeGainBox.Text = FormatPlayTimeGain(new_stats[mode].Playtime, old_stats[mode].Playtime);
             PlayCountBox.Text = FormatNumber(new_stats[mode].Playcount);
             PlayCountGainBox.Text = FormatGainInt((int)new_stats[mode].Playcount, (int)old_stats[mode].Playcount);
@@ -194,10 +203,26 @@ namespace osu_stats
                 ScoreRankBox.Text = FormatNumber(settings.ScoreRank[mode]);
                 ScoreRankGainBox.Text = FormatGainInt(settings.ScoreRank[mode], settings.ScoreRankOld[mode]);
             }
-            if (settings.Firsts != null) {
+            if (settings.Firsts != null && settings.FirstsOld != null) {
                 FirstsBox.Text = FormatNumber(settings.Firsts[mode]);
                 FirstsBoxGain.Text = FormatGainInt(settings.Firsts[mode], settings.FirstsOld[mode]);
             }
+            SSHBox.Text = FormatNumber(new_stats[mode].Grades.XhCount);
+            SSHGainBox.Text = FormatGainInt(new_stats[mode].Grades.XhCount, old_stats[mode].Grades.XhCount);
+            SSBox.Text = FormatNumber(new_stats[mode].Grades.XCount);
+            SSGainBox.Text = FormatGainInt(new_stats[mode].Grades.XCount, old_stats[mode].Grades.XCount);
+            SHBox.Text = FormatNumber(new_stats[mode].Grades.ShCount);
+            SHGainBox.Text = FormatGainInt(new_stats[mode].Grades.ShCount, old_stats[mode].Grades.ShCount);
+            SBox.Text = FormatNumber(new_stats[mode].Grades.SCount);
+            SGainBox.Text = FormatGainInt(new_stats[mode].Grades.SCount, old_stats[mode].Grades.SCount);
+            ABox.Text = FormatNumber(new_stats[mode].Grades.ACount);
+            AGainBox.Text = FormatGainInt(new_stats[mode].Grades.ACount, old_stats[mode].Grades.ACount);
+            BBox.Text = FormatNumber(new_stats[mode].Grades.BCount);
+            BGainBox.Text = FormatGainInt(new_stats[mode].Grades.BCount, old_stats[mode].Grades.BCount);
+            CBox.Text = FormatNumber(new_stats[mode].Grades.CCount);
+            CGainBox.Text = FormatGainInt(new_stats[mode].Grades.CCount, old_stats[mode].Grades.CCount);
+            DBox.Text = FormatNumber(new_stats[mode].Grades.DCount);
+            DGainBox.Text = FormatGainInt(new_stats[mode].Grades.DCount, old_stats[mode].Grades.DCount);
             InfoLabel.Text = $"{response_new.Username}'s {modes[mode]} session.";
         }
 

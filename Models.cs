@@ -17,6 +17,7 @@ namespace osu_stats
         public int[] FirstsOld { get; set; }
         public int[] ScoreRank { get; set; }
         public int[] ScoreRankOld { get; set; }
+        public int StdRxPlayTimeOffset { get; set; }
         public int DefaultGameMode { get; set; }
         public string NewJson { get; set; }
         public string OldJson { get; set; }
