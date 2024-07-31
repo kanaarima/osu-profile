@@ -8,7 +8,7 @@ namespace osu_stats
     internal static class Program
     {
 
-        static readonly string VERSION = "3";
+        static readonly string VERSION = "4";
 
         [STAThread]
         static void Main() {
