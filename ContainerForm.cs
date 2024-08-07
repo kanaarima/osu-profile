@@ -237,6 +237,7 @@ namespace osu_stats
 
         private void ReloadStats() {
             var settings = Settings.Load();
+            var filestreams = FileStreams.Load();
             if (settings.NewJson == null || settings.OldJson == null)
                 return;
             var modes = new string[] { "Standard", "Standard RX", "Standard AP", "Taiko", "Taiko RX", "Ctb", "Ctb RX", "Mania" };
@@ -296,6 +297,14 @@ namespace osu_stats
             DBox.Text = info["d"];
             DGainBox.Text = info["d_change"];
             InfoLabel.Text = $"{response_new.Username}'s {modes[mode]} session.";
+            foreach (var filestream in filestreams.streams) {
+                if (filestream.json) {
+                    File.WriteAllText(filestream.path, JsonConvert.SerializeObject(info, Formatting.Indented));
+                    continue;
+                } else {
+                    File.WriteAllText(filestream.path, filestream.Compile(info));
+                }
+            }
         }
 
         private void Timer_Tick(object sender, EventArgs e) {

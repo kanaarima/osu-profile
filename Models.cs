@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace osu_stats
@@ -56,4 +57,39 @@ namespace osu_stats
         }
     }
 
+    public class FileStream {
+        public bool json;
+        public string content;
+        public string path;
+
+        public string Compile(Dictionary<string, string> parameters) {
+            var result = content;
+            foreach (var key in parameters.Keys) {
+                int index = result.IndexOf($"${key}");
+                if (index != -1) {
+                    // Replace the first occurrence of $next_rank_score
+                    result = result.Remove(index, $"${key}".Length).Insert(index, parameters[key]);
+                }
+            }
+            return result;
+        }
+
+    }
+
+    public class FileStreams {
+        public List<FileStream> streams;
+
+        public static FileStreams Load() {
+            try {
+                return JsonConvert.DeserializeObject<FileStreams>(File.ReadAllText("filestreams.json"));
+            } catch { }
+            var model = new FileStreams();
+            model.streams = new List<FileStream>();
+            return model;
+        }
+
+        public void Save() {
+            File.WriteAllText("filestreams.json", JsonConvert.SerializeObject(this, Formatting.Indented));
+        }
+    }
 }
