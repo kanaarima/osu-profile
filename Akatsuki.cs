@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace osu_stats
 {
-    internal class Akatsuki
+    public class Akatsuki
     {
 
         public class UserInfo

@@ -65,11 +65,7 @@ namespace osu_stats
         public string Compile(Dictionary<string, string> parameters) {
             var result = content;
             foreach (var key in parameters.Keys) {
-                int index = result.IndexOf($"${key}");
-                if (index != -1) {
-                    // Replace the first occurrence of $next_rank_score
-                    result = result.Remove(index, $"${key}".Length).Insert(index, parameters[key]);
-                }
+                result = result.Replace($"${key}", parameters[key]);
             }
             return result;
         }

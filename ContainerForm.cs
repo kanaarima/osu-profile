@@ -113,7 +113,7 @@ namespace osu_stats
             new SettingsForm().Show();
         }
 
-        private List<Stats> ReorganiseStats(UserInfo info) {
+        public static List<Stats> ReorganiseStats(UserInfo info) {
             List<Stats> stats =
             [
                 info.Stats[0].Std,
@@ -128,11 +128,11 @@ namespace osu_stats
             return stats;
         }
 
-        private string FormatNumber(object number) {
+        public static string FormatNumber(object number) {
             return string.Format("{0:#,##0}", number);
         }
 
-        private string FormatGainInt(int? new_number, int? old_number, bool reversed = false) {
+        public static string FormatGainInt(int? new_number, int? old_number, bool reversed = false) {
             if (new_number == null)
                 return "";
             int gain = reversed ? (int)old_number - (int)new_number : (int)new_number - (int)old_number;
@@ -143,11 +143,11 @@ namespace osu_stats
             return string.Format("{0:#,##0}", gain);
         }
 
-        private string FormatAccuracy(double accuracy) {
+        public static string FormatAccuracy(double accuracy) {
             return string.Format("{0:0.00}%", accuracy);
         }
 
-        private string FormatAccuracyGain(double new_acc, double old_acc) {
+        public static string FormatAccuracyGain(double new_acc, double old_acc) {
             var gain = new_acc - old_acc;
             if (gain == 0)
                 return "";
@@ -156,12 +156,12 @@ namespace osu_stats
             return string.Format("{0:0.00}%", gain);
         }
 
-        private string FormatPlayTime(int totalSeconds) {
+        public static string FormatPlayTime(int totalSeconds) {
             TimeSpan t = TimeSpan.FromSeconds(totalSeconds);
             return string.Format("{0:#,##0}h {1:D2}m", (int)t.TotalHours, t.Minutes);
         }
 
-        private string FormatPlayTimeGain(int new_seconds, int old_seconds) {
+        public static string FormatPlayTimeGain(int new_seconds, int old_seconds) {
             int totalSeconds = new_seconds - old_seconds;
             if (totalSeconds == 0)
                 return "";
@@ -169,7 +169,7 @@ namespace osu_stats
             return string.Format("{0:#,##0}h {1:D2}m", (int)t.TotalHours, t.Minutes);
         }
 
-        private Dictionary<string, string> GetStats() {
+        public static Dictionary<string, string> GetStats() {
             var dict = new Dictionary<string, string>();
             var settings = Settings.Load();
             if (settings.NewJson == null || settings.OldJson == null)
@@ -180,58 +180,58 @@ namespace osu_stats
             var new_stats = ReorganiseStats(response_new);
             var old_stats = ReorganiseStats(response_old);
             var playtimeoffset = mode == 1 ? settings.StdRxPlayTimeOffset : 0;
-            dict["global_rank"] = FormatNumber(new_stats[mode].GlobalLeaderboardRank);
             dict["global_rank_change"] = FormatGainInt(new_stats[mode].GlobalLeaderboardRank, old_stats[mode].GlobalLeaderboardRank, true);
-            dict["country_rank"] = FormatNumber(new_stats[mode].CountryLeaderboardRank);
+            dict["global_rank"] = FormatNumber(new_stats[mode].GlobalLeaderboardRank);
             dict["country_rank_change"] = FormatGainInt(new_stats[mode].CountryLeaderboardRank, old_stats[mode].CountryLeaderboardRank, true);
-            dict["ranked_score"] = FormatNumber(new_stats[mode].RankedScore);
+            dict["country_rank"] = FormatNumber(new_stats[mode].CountryLeaderboardRank);
             dict["ranked_score_change"] = FormatGainInt((int)new_stats[mode].RankedScore, (int)old_stats[mode].RankedScore);
-            dict["total_score"] = FormatNumber(new_stats[mode].TotalScore);
+            dict["ranked_score"] = FormatNumber(new_stats[mode].RankedScore);
             dict["total_score_change"] = FormatGainInt((int)new_stats[mode].TotalScore, (int)old_stats[mode].TotalScore);
-            dict["pp"] = FormatNumber(new_stats[mode].Pp);
+            dict["total_score"] = FormatNumber(new_stats[mode].TotalScore);
             dict["pp_change"] = FormatGainInt((int)new_stats[mode].Pp, (int)old_stats[mode].Pp);
-            dict["accuracy"] = FormatAccuracy(new_stats[mode].Accuracy);
+            dict["pp"] = FormatNumber(new_stats[mode].Pp);
             dict["accuracy_change"] = FormatAccuracyGain(new_stats[mode].Accuracy, old_stats[mode].Accuracy);
-            dict["playtime"] = FormatPlayTime(new_stats[mode].Playtime - playtimeoffset);
+            dict["accuracy"] = FormatAccuracy(new_stats[mode].Accuracy);
             dict["playtime_change"] = FormatPlayTimeGain(new_stats[mode].Playtime, old_stats[mode].Playtime);
-            dict["playcount"] = FormatNumber(new_stats[mode].Playcount);
+            dict["playtime"] = FormatPlayTime(new_stats[mode].Playtime - playtimeoffset);
             dict["playcount_change"] = FormatGainInt((int)new_stats[mode].Playcount, (int)old_stats[mode].Playcount);
-            dict["total_hits"] = FormatNumber(new_stats[mode].TotalHits);
+            dict["playcount"] = FormatNumber(new_stats[mode].Playcount);
             dict["total_hits_change"] = FormatGainInt((int)new_stats[mode].TotalHits, (int)old_stats[mode].TotalHits);
-            dict["clears"] = FormatNumber(settings.Clears[mode]);
+            dict["total_hits"] = FormatNumber(new_stats[mode].TotalHits);
             dict["clears_change"] = FormatGainInt(settings.Clears[mode], settings.ClearsOld[mode]);
+            dict["clears"] = FormatNumber(settings.Clears[mode]);
             if (settings.ScoreRank != null) {
-                dict["score_rank"] = FormatNumber(settings.ScoreRank[mode]);
                 dict["score_rank_change"] = FormatGainInt(settings.ScoreRank[mode], settings.ScoreRankOld[mode]);
+                dict["score_rank"] = FormatNumber(settings.ScoreRank[mode]);
             }
             if (settings.Firsts != null && settings.FirstsOld != null) {
-                dict["firsts"] = FormatNumber(settings.Firsts[mode]);
                 dict["firsts_change"] = FormatGainInt(settings.Firsts[mode], settings.FirstsOld[mode]);
+                dict["firsts"] = FormatNumber(settings.Firsts[mode]);
             }
             if (settings.NextScoreRank != null) {
-                dict["next_rank_score"] = FormatNumber(settings.NextScoreRank[mode]);
                 dict["next_rank_score_needed"] = FormatNumber(settings.NextScoreRank[mode] - new_stats[mode].RankedScore);
+                dict["next_rank_score"] = FormatNumber(settings.NextScoreRank[mode]);
             }
             if (settings.NextPPRank != null) {
-                dict["next_rank_pp"] = FormatNumber(settings.NextPPRank[mode]);
                 dict["next_rank_pp_needed"] = FormatNumber(settings.NextPPRank[mode] - new_stats[mode].Pp);
+                dict["next_rank_pp"] = FormatNumber(settings.NextPPRank[mode]);
             }
-            dict["ssh"] = FormatNumber(new_stats[mode].Grades.XhCount);
             dict["ssh_change"] = FormatGainInt(new_stats[mode].Grades.XhCount, old_stats[mode].Grades.XhCount);
-            dict["ss"] = FormatNumber(new_stats[mode].Grades.XCount);
+            dict["ssh"] = FormatNumber(new_stats[mode].Grades.XhCount);
             dict["ss_change"] = FormatGainInt(new_stats[mode].Grades.XCount, old_stats[mode].Grades.XCount);
-            dict["sh"] = FormatNumber(new_stats[mode].Grades.ShCount);
+            dict["ss"] = FormatNumber(new_stats[mode].Grades.XCount);
             dict["sh_change"] = FormatGainInt(new_stats[mode].Grades.ShCount, old_stats[mode].Grades.ShCount);
-            dict["s"] = FormatNumber(new_stats[mode].Grades.SCount);
+            dict["sh"] = FormatNumber(new_stats[mode].Grades.ShCount);
             dict["s_change"] = FormatGainInt(new_stats[mode].Grades.SCount, old_stats[mode].Grades.SCount);
-            dict["a"] = FormatNumber(new_stats[mode].Grades.ACount);
+            dict["s"] = FormatNumber(new_stats[mode].Grades.SCount);
             dict["a_change"] = FormatGainInt(new_stats[mode].Grades.ACount, old_stats[mode].Grades.ACount);
-            dict["b"] = FormatNumber(new_stats[mode].Grades.BCount);
+            dict["a"] = FormatNumber(new_stats[mode].Grades.ACount);
             dict["b_change"] = FormatGainInt(new_stats[mode].Grades.BCount, old_stats[mode].Grades.BCount);
-            dict["c"] = FormatNumber(new_stats[mode].Grades.CCount);
+            dict["b"] = FormatNumber(new_stats[mode].Grades.BCount);
             dict["c_change"] = FormatGainInt(new_stats[mode].Grades.CCount, old_stats[mode].Grades.CCount);
-            dict["d"] = FormatNumber(new_stats[mode].Grades.DCount);
+            dict["c"] = FormatNumber(new_stats[mode].Grades.CCount);
             dict["d_change"] = FormatGainInt(new_stats[mode].Grades.DCount, old_stats[mode].Grades.DCount);
+            dict["d"] = FormatNumber(new_stats[mode].Grades.DCount);
             return dict;
         }
 
