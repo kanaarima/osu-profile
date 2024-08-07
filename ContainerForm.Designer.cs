@@ -93,6 +93,12 @@
             CGainBox = new TextBox();
             CBox = new TextBox();
             CLabel = new Label();
+            NextScoreRankGain = new TextBox();
+            NextScoreRankBox = new TextBox();
+            NextScoreRankLabel = new Label();
+            NextPPRankGain = new TextBox();
+            NextPPRankBox = new TextBox();
+            NextPPRankLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)AvatarBox).BeginInit();
             SuspendLayout();
             // 
@@ -268,7 +274,7 @@
             PpGainBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             PpGainBox.BackColor = Color.FromArgb(50, 50, 50);
             PpGainBox.ForeColor = Color.White;
-            PpGainBox.Location = new Point(261, 199);
+            PpGainBox.Location = new Point(261, 279);
             PpGainBox.Name = "PpGainBox";
             PpGainBox.ReadOnly = true;
             PpGainBox.Size = new Size(92, 23);
@@ -280,7 +286,7 @@
             PpBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             PpBox.BackColor = Color.FromArgb(50, 50, 50);
             PpBox.ForeColor = Color.White;
-            PpBox.Location = new Point(118, 199);
+            PpBox.Location = new Point(118, 279);
             PpBox.Name = "PpBox";
             PpBox.ReadOnly = true;
             PpBox.Size = new Size(137, 23);
@@ -291,7 +297,7 @@
             // 
             PpLabel.AutoSize = true;
             PpLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            PpLabel.Location = new Point(12, 200);
+            PpLabel.Location = new Point(12, 280);
             PpLabel.Name = "PpLabel";
             PpLabel.Size = new Size(82, 17);
             PpLabel.TabIndex = 22;
@@ -302,7 +308,7 @@
             TotalScoreGainBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             TotalScoreGainBox.BackColor = Color.FromArgb(50, 50, 50);
             TotalScoreGainBox.ForeColor = Color.White;
-            TotalScoreGainBox.Location = new Point(261, 170);
+            TotalScoreGainBox.Location = new Point(261, 250);
             TotalScoreGainBox.Name = "TotalScoreGainBox";
             TotalScoreGainBox.ReadOnly = true;
             TotalScoreGainBox.Size = new Size(92, 23);
@@ -314,7 +320,7 @@
             TotalScoreBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TotalScoreBox.BackColor = Color.FromArgb(50, 50, 50);
             TotalScoreBox.ForeColor = Color.White;
-            TotalScoreBox.Location = new Point(118, 170);
+            TotalScoreBox.Location = new Point(118, 250);
             TotalScoreBox.Name = "TotalScoreBox";
             TotalScoreBox.ReadOnly = true;
             TotalScoreBox.Size = new Size(137, 23);
@@ -325,7 +331,7 @@
             // 
             TotalScoreLabel.AutoSize = true;
             TotalScoreLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            TotalScoreLabel.Location = new Point(12, 171);
+            TotalScoreLabel.Location = new Point(12, 251);
             TotalScoreLabel.Name = "TotalScoreLabel";
             TotalScoreLabel.Size = new Size(73, 17);
             TotalScoreLabel.TabIndex = 19;
@@ -336,7 +342,7 @@
             RankedScoreGainBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             RankedScoreGainBox.BackColor = Color.FromArgb(50, 50, 50);
             RankedScoreGainBox.ForeColor = Color.White;
-            RankedScoreGainBox.Location = new Point(261, 141);
+            RankedScoreGainBox.Location = new Point(261, 221);
             RankedScoreGainBox.Name = "RankedScoreGainBox";
             RankedScoreGainBox.ReadOnly = true;
             RankedScoreGainBox.Size = new Size(92, 23);
@@ -348,7 +354,7 @@
             RankedScoreBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             RankedScoreBox.BackColor = Color.FromArgb(50, 50, 50);
             RankedScoreBox.ForeColor = Color.White;
-            RankedScoreBox.Location = new Point(118, 141);
+            RankedScoreBox.Location = new Point(118, 221);
             RankedScoreBox.Name = "RankedScoreBox";
             RankedScoreBox.ReadOnly = true;
             RankedScoreBox.Size = new Size(137, 23);
@@ -359,7 +365,7 @@
             // 
             RankedScoreLabel.AutoSize = true;
             RankedScoreLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            RankedScoreLabel.Location = new Point(12, 142);
+            RankedScoreLabel.Location = new Point(12, 222);
             RankedScoreLabel.Name = "RankedScoreLabel";
             RankedScoreLabel.Size = new Size(88, 17);
             RankedScoreLabel.TabIndex = 16;
@@ -370,7 +376,7 @@
             ClearsBoxGain.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             ClearsBoxGain.BackColor = Color.FromArgb(50, 50, 50);
             ClearsBoxGain.ForeColor = Color.White;
-            ClearsBoxGain.Location = new Point(261, 344);
+            ClearsBoxGain.Location = new Point(261, 424);
             ClearsBoxGain.Name = "ClearsBoxGain";
             ClearsBoxGain.ReadOnly = true;
             ClearsBoxGain.Size = new Size(92, 23);
@@ -382,7 +388,7 @@
             ClearsBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             ClearsBox.BackColor = Color.FromArgb(50, 50, 50);
             ClearsBox.ForeColor = Color.White;
-            ClearsBox.Location = new Point(118, 344);
+            ClearsBox.Location = new Point(118, 424);
             ClearsBox.Name = "ClearsBox";
             ClearsBox.ReadOnly = true;
             ClearsBox.Size = new Size(137, 23);
@@ -393,7 +399,7 @@
             // 
             ClearsLabel.AutoSize = true;
             ClearsLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            ClearsLabel.Location = new Point(12, 345);
+            ClearsLabel.Location = new Point(12, 425);
             ClearsLabel.Name = "ClearsLabel";
             ClearsLabel.Size = new Size(44, 17);
             ClearsLabel.TabIndex = 37;
@@ -404,7 +410,7 @@
             TotalHitsGainBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             TotalHitsGainBox.BackColor = Color.FromArgb(50, 50, 50);
             TotalHitsGainBox.ForeColor = Color.White;
-            TotalHitsGainBox.Location = new Point(261, 315);
+            TotalHitsGainBox.Location = new Point(261, 395);
             TotalHitsGainBox.Name = "TotalHitsGainBox";
             TotalHitsGainBox.ReadOnly = true;
             TotalHitsGainBox.Size = new Size(92, 23);
@@ -416,7 +422,7 @@
             TotalHitsBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TotalHitsBox.BackColor = Color.FromArgb(50, 50, 50);
             TotalHitsBox.ForeColor = Color.White;
-            TotalHitsBox.Location = new Point(118, 315);
+            TotalHitsBox.Location = new Point(118, 395);
             TotalHitsBox.Name = "TotalHitsBox";
             TotalHitsBox.ReadOnly = true;
             TotalHitsBox.Size = new Size(137, 23);
@@ -427,7 +433,7 @@
             // 
             TotalHitsLabel.AutoSize = true;
             TotalHitsLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            TotalHitsLabel.Location = new Point(12, 316);
+            TotalHitsLabel.Location = new Point(12, 396);
             TotalHitsLabel.Name = "TotalHitsLabel";
             TotalHitsLabel.Size = new Size(62, 17);
             TotalHitsLabel.TabIndex = 34;
@@ -438,7 +444,7 @@
             PlayCountGainBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             PlayCountGainBox.BackColor = Color.FromArgb(50, 50, 50);
             PlayCountGainBox.ForeColor = Color.White;
-            PlayCountGainBox.Location = new Point(261, 286);
+            PlayCountGainBox.Location = new Point(261, 366);
             PlayCountGainBox.Name = "PlayCountGainBox";
             PlayCountGainBox.ReadOnly = true;
             PlayCountGainBox.Size = new Size(92, 23);
@@ -450,7 +456,7 @@
             PlayCountBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             PlayCountBox.BackColor = Color.FromArgb(50, 50, 50);
             PlayCountBox.ForeColor = Color.White;
-            PlayCountBox.Location = new Point(118, 286);
+            PlayCountBox.Location = new Point(118, 366);
             PlayCountBox.Name = "PlayCountBox";
             PlayCountBox.ReadOnly = true;
             PlayCountBox.Size = new Size(137, 23);
@@ -461,7 +467,7 @@
             // 
             PlayCountLabel.AutoSize = true;
             PlayCountLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            PlayCountLabel.Location = new Point(12, 287);
+            PlayCountLabel.Location = new Point(12, 367);
             PlayCountLabel.Name = "PlayCountLabel";
             PlayCountLabel.Size = new Size(69, 17);
             PlayCountLabel.TabIndex = 31;
@@ -472,7 +478,7 @@
             PlayTimeGainBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             PlayTimeGainBox.BackColor = Color.FromArgb(50, 50, 50);
             PlayTimeGainBox.ForeColor = Color.White;
-            PlayTimeGainBox.Location = new Point(261, 257);
+            PlayTimeGainBox.Location = new Point(261, 337);
             PlayTimeGainBox.Name = "PlayTimeGainBox";
             PlayTimeGainBox.ReadOnly = true;
             PlayTimeGainBox.Size = new Size(92, 23);
@@ -484,7 +490,7 @@
             PlayTimeBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             PlayTimeBox.BackColor = Color.FromArgb(50, 50, 50);
             PlayTimeBox.ForeColor = Color.White;
-            PlayTimeBox.Location = new Point(118, 257);
+            PlayTimeBox.Location = new Point(118, 337);
             PlayTimeBox.Name = "PlayTimeBox";
             PlayTimeBox.ReadOnly = true;
             PlayTimeBox.Size = new Size(137, 23);
@@ -495,7 +501,7 @@
             // 
             PlayTimeLabel.AutoSize = true;
             PlayTimeLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            PlayTimeLabel.Location = new Point(12, 258);
+            PlayTimeLabel.Location = new Point(12, 338);
             PlayTimeLabel.Name = "PlayTimeLabel";
             PlayTimeLabel.Size = new Size(63, 17);
             PlayTimeLabel.TabIndex = 28;
@@ -506,7 +512,7 @@
             AccuracyGainBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             AccuracyGainBox.BackColor = Color.FromArgb(50, 50, 50);
             AccuracyGainBox.ForeColor = Color.White;
-            AccuracyGainBox.Location = new Point(261, 228);
+            AccuracyGainBox.Location = new Point(261, 308);
             AccuracyGainBox.Name = "AccuracyGainBox";
             AccuracyGainBox.ReadOnly = true;
             AccuracyGainBox.Size = new Size(92, 23);
@@ -518,7 +524,7 @@
             AccuracyBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             AccuracyBox.BackColor = Color.FromArgb(50, 50, 50);
             AccuracyBox.ForeColor = Color.White;
-            AccuracyBox.Location = new Point(118, 228);
+            AccuracyBox.Location = new Point(118, 308);
             AccuracyBox.Name = "AccuracyBox";
             AccuracyBox.ReadOnly = true;
             AccuracyBox.Size = new Size(137, 23);
@@ -529,7 +535,7 @@
             // 
             AccuracyLabel.AutoSize = true;
             AccuracyLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            AccuracyLabel.Location = new Point(12, 229);
+            AccuracyLabel.Location = new Point(12, 309);
             AccuracyLabel.Name = "AccuracyLabel";
             AccuracyLabel.Size = new Size(59, 17);
             AccuracyLabel.TabIndex = 25;
@@ -547,7 +553,7 @@
             // 
             InfoLabel.AutoSize = true;
             InfoLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            InfoLabel.Location = new Point(12, 644);
+            InfoLabel.Location = new Point(12, 724);
             InfoLabel.Name = "InfoLabel";
             InfoLabel.Size = new Size(95, 17);
             InfoLabel.TabIndex = 42;
@@ -557,7 +563,7 @@
             // 
             ResetButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             ResetButton.FlatStyle = FlatStyle.Flat;
-            ResetButton.Location = new Point(261, 641);
+            ResetButton.Location = new Point(261, 721);
             ResetButton.Name = "ResetButton";
             ResetButton.Size = new Size(92, 23);
             ResetButton.TabIndex = 43;
@@ -570,7 +576,7 @@
             FirstsBoxGain.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             FirstsBoxGain.BackColor = Color.FromArgb(50, 50, 50);
             FirstsBoxGain.ForeColor = Color.White;
-            FirstsBoxGain.Location = new Point(261, 373);
+            FirstsBoxGain.Location = new Point(261, 453);
             FirstsBoxGain.Name = "FirstsBoxGain";
             FirstsBoxGain.ReadOnly = true;
             FirstsBoxGain.Size = new Size(92, 23);
@@ -582,7 +588,7 @@
             FirstsBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             FirstsBox.BackColor = Color.FromArgb(50, 50, 50);
             FirstsBox.ForeColor = Color.White;
-            FirstsBox.Location = new Point(118, 373);
+            FirstsBox.Location = new Point(118, 453);
             FirstsBox.Name = "FirstsBox";
             FirstsBox.ReadOnly = true;
             FirstsBox.Size = new Size(137, 23);
@@ -593,7 +599,7 @@
             // 
             FirstsLabel.AutoSize = true;
             FirstsLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            FirstsLabel.Location = new Point(12, 374);
+            FirstsLabel.Location = new Point(12, 454);
             FirstsLabel.Name = "FirstsLabel";
             FirstsLabel.Size = new Size(38, 17);
             FirstsLabel.TabIndex = 44;
@@ -604,7 +610,7 @@
             SGainBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             SGainBox.BackColor = Color.FromArgb(50, 50, 50);
             SGainBox.ForeColor = Color.White;
-            SGainBox.Location = new Point(261, 490);
+            SGainBox.Location = new Point(261, 570);
             SGainBox.Name = "SGainBox";
             SGainBox.ReadOnly = true;
             SGainBox.Size = new Size(92, 23);
@@ -616,7 +622,7 @@
             SBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             SBox.BackColor = Color.FromArgb(50, 50, 50);
             SBox.ForeColor = Color.White;
-            SBox.Location = new Point(118, 490);
+            SBox.Location = new Point(118, 570);
             SBox.Name = "SBox";
             SBox.ReadOnly = true;
             SBox.Size = new Size(137, 23);
@@ -627,7 +633,7 @@
             // 
             SLabel.AutoSize = true;
             SLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            SLabel.Location = new Point(12, 491);
+            SLabel.Location = new Point(12, 571);
             SLabel.Name = "SLabel";
             SLabel.Size = new Size(47, 17);
             SLabel.TabIndex = 56;
@@ -638,7 +644,7 @@
             SHGainBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             SHGainBox.BackColor = Color.FromArgb(50, 50, 50);
             SHGainBox.ForeColor = Color.White;
-            SHGainBox.Location = new Point(261, 461);
+            SHGainBox.Location = new Point(261, 541);
             SHGainBox.Name = "SHGainBox";
             SHGainBox.ReadOnly = true;
             SHGainBox.Size = new Size(92, 23);
@@ -650,7 +656,7 @@
             SHBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             SHBox.BackColor = Color.FromArgb(50, 50, 50);
             SHBox.ForeColor = Color.White;
-            SHBox.Location = new Point(118, 461);
+            SHBox.Location = new Point(118, 541);
             SHBox.Name = "SHBox";
             SHBox.ReadOnly = true;
             SHBox.Size = new Size(137, 23);
@@ -661,7 +667,7 @@
             // 
             SHLabel.AutoSize = true;
             SHLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            SHLabel.Location = new Point(12, 462);
+            SHLabel.Location = new Point(12, 542);
             SHLabel.Name = "SHLabel";
             SHLabel.Size = new Size(56, 17);
             SHLabel.TabIndex = 53;
@@ -672,7 +678,7 @@
             SSGainBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             SSGainBox.BackColor = Color.FromArgb(50, 50, 50);
             SSGainBox.ForeColor = Color.White;
-            SSGainBox.Location = new Point(261, 432);
+            SSGainBox.Location = new Point(261, 512);
             SSGainBox.Name = "SSGainBox";
             SSGainBox.ReadOnly = true;
             SSGainBox.Size = new Size(92, 23);
@@ -684,7 +690,7 @@
             SSBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             SSBox.BackColor = Color.FromArgb(50, 50, 50);
             SSBox.ForeColor = Color.White;
-            SSBox.Location = new Point(118, 432);
+            SSBox.Location = new Point(118, 512);
             SSBox.Name = "SSBox";
             SSBox.ReadOnly = true;
             SSBox.Size = new Size(137, 23);
@@ -695,7 +701,7 @@
             // 
             SSLabel.AutoSize = true;
             SSLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            SSLabel.Location = new Point(12, 433);
+            SSLabel.Location = new Point(12, 513);
             SSLabel.Name = "SSLabel";
             SSLabel.Size = new Size(54, 17);
             SSLabel.TabIndex = 50;
@@ -706,7 +712,7 @@
             SSHGainBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             SSHGainBox.BackColor = Color.FromArgb(50, 50, 50);
             SSHGainBox.ForeColor = Color.White;
-            SSHGainBox.Location = new Point(261, 403);
+            SSHGainBox.Location = new Point(261, 483);
             SSHGainBox.Name = "SSHGainBox";
             SSHGainBox.ReadOnly = true;
             SSHGainBox.Size = new Size(92, 23);
@@ -718,7 +724,7 @@
             SSHBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             SSHBox.BackColor = Color.FromArgb(50, 50, 50);
             SSHBox.ForeColor = Color.White;
-            SSHBox.Location = new Point(118, 403);
+            SSHBox.Location = new Point(118, 483);
             SSHBox.Name = "SSHBox";
             SSHBox.ReadOnly = true;
             SSHBox.Size = new Size(137, 23);
@@ -729,7 +735,7 @@
             // 
             SSHLabel.AutoSize = true;
             SSHLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            SSHLabel.Location = new Point(12, 404);
+            SSHLabel.Location = new Point(12, 484);
             SSHLabel.Name = "SSHLabel";
             SSHLabel.Size = new Size(63, 17);
             SSHLabel.TabIndex = 47;
@@ -740,7 +746,7 @@
             BGainBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BGainBox.BackColor = Color.FromArgb(50, 50, 50);
             BGainBox.ForeColor = Color.White;
-            BGainBox.Location = new Point(261, 545);
+            BGainBox.Location = new Point(261, 625);
             BGainBox.Name = "BGainBox";
             BGainBox.ReadOnly = true;
             BGainBox.Size = new Size(92, 23);
@@ -752,7 +758,7 @@
             BBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             BBox.BackColor = Color.FromArgb(50, 50, 50);
             BBox.ForeColor = Color.White;
-            BBox.Location = new Point(118, 545);
+            BBox.Location = new Point(118, 625);
             BBox.Name = "BBox";
             BBox.ReadOnly = true;
             BBox.Size = new Size(137, 23);
@@ -763,7 +769,7 @@
             // 
             BLabel.AutoSize = true;
             BLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            BLabel.Location = new Point(12, 546);
+            BLabel.Location = new Point(12, 626);
             BLabel.Name = "BLabel";
             BLabel.Size = new Size(47, 17);
             BLabel.TabIndex = 62;
@@ -774,7 +780,7 @@
             AGainBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             AGainBox.BackColor = Color.FromArgb(50, 50, 50);
             AGainBox.ForeColor = Color.White;
-            AGainBox.Location = new Point(261, 516);
+            AGainBox.Location = new Point(261, 596);
             AGainBox.Name = "AGainBox";
             AGainBox.ReadOnly = true;
             AGainBox.Size = new Size(92, 23);
@@ -786,7 +792,7 @@
             ABox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             ABox.BackColor = Color.FromArgb(50, 50, 50);
             ABox.ForeColor = Color.White;
-            ABox.Location = new Point(118, 516);
+            ABox.Location = new Point(118, 596);
             ABox.Name = "ABox";
             ABox.ReadOnly = true;
             ABox.Size = new Size(137, 23);
@@ -797,7 +803,7 @@
             // 
             ALabel.AutoSize = true;
             ALabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            ALabel.Location = new Point(12, 517);
+            ALabel.Location = new Point(12, 597);
             ALabel.Name = "ALabel";
             ALabel.Size = new Size(48, 17);
             ALabel.TabIndex = 59;
@@ -808,7 +814,7 @@
             DGainBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             DGainBox.BackColor = Color.FromArgb(50, 50, 50);
             DGainBox.ForeColor = Color.White;
-            DGainBox.Location = new Point(261, 604);
+            DGainBox.Location = new Point(261, 684);
             DGainBox.Name = "DGainBox";
             DGainBox.ReadOnly = true;
             DGainBox.Size = new Size(92, 23);
@@ -820,7 +826,7 @@
             DBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             DBox.BackColor = Color.FromArgb(50, 50, 50);
             DBox.ForeColor = Color.White;
-            DBox.Location = new Point(118, 604);
+            DBox.Location = new Point(118, 684);
             DBox.Name = "DBox";
             DBox.ReadOnly = true;
             DBox.Size = new Size(137, 23);
@@ -831,7 +837,7 @@
             // 
             DLabel.AutoSize = true;
             DLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            DLabel.Location = new Point(12, 605);
+            DLabel.Location = new Point(12, 685);
             DLabel.Name = "DLabel";
             DLabel.Size = new Size(49, 17);
             DLabel.TabIndex = 68;
@@ -842,7 +848,7 @@
             CGainBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             CGainBox.BackColor = Color.FromArgb(50, 50, 50);
             CGainBox.ForeColor = Color.White;
-            CGainBox.Location = new Point(261, 575);
+            CGainBox.Location = new Point(261, 655);
             CGainBox.Name = "CGainBox";
             CGainBox.ReadOnly = true;
             CGainBox.Size = new Size(92, 23);
@@ -854,7 +860,7 @@
             CBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             CBox.BackColor = Color.FromArgb(50, 50, 50);
             CBox.ForeColor = Color.White;
-            CBox.Location = new Point(118, 575);
+            CBox.Location = new Point(118, 655);
             CBox.Name = "CBox";
             CBox.ReadOnly = true;
             CBox.Size = new Size(137, 23);
@@ -865,18 +871,92 @@
             // 
             CLabel.AutoSize = true;
             CLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            CLabel.Location = new Point(12, 576);
+            CLabel.Location = new Point(12, 656);
             CLabel.Name = "CLabel";
             CLabel.Size = new Size(48, 17);
             CLabel.TabIndex = 65;
             CLabel.Text = "Rank C";
+            // 
+            // NextScoreRankGain
+            // 
+            NextScoreRankGain.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            NextScoreRankGain.BackColor = Color.FromArgb(50, 50, 50);
+            NextScoreRankGain.ForeColor = Color.White;
+            NextScoreRankGain.Location = new Point(261, 141);
+            NextScoreRankGain.Name = "NextScoreRankGain";
+            NextScoreRankGain.ReadOnly = true;
+            NextScoreRankGain.Size = new Size(92, 23);
+            NextScoreRankGain.TabIndex = 73;
+            NextScoreRankGain.TextAlign = HorizontalAlignment.Right;
+            // 
+            // NextScoreRankBox
+            // 
+            NextScoreRankBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            NextScoreRankBox.BackColor = Color.FromArgb(50, 50, 50);
+            NextScoreRankBox.ForeColor = Color.White;
+            NextScoreRankBox.Location = new Point(118, 141);
+            NextScoreRankBox.Name = "NextScoreRankBox";
+            NextScoreRankBox.ReadOnly = true;
+            NextScoreRankBox.Size = new Size(137, 23);
+            NextScoreRankBox.TabIndex = 72;
+            NextScoreRankBox.TextAlign = HorizontalAlignment.Right;
+            // 
+            // NextScoreRankLabel
+            // 
+            NextScoreRankLabel.AutoSize = true;
+            NextScoreRankLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            NextScoreRankLabel.Location = new Point(12, 142);
+            NextScoreRankLabel.Name = "NextScoreRankLabel";
+            NextScoreRankLabel.Size = new Size(93, 17);
+            NextScoreRankLabel.TabIndex = 71;
+            NextScoreRankLabel.Text = "R.Score for +1";
+            // 
+            // NextPPRankGain
+            // 
+            NextPPRankGain.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            NextPPRankGain.BackColor = Color.FromArgb(50, 50, 50);
+            NextPPRankGain.ForeColor = Color.White;
+            NextPPRankGain.Location = new Point(261, 170);
+            NextPPRankGain.Name = "NextPPRankGain";
+            NextPPRankGain.ReadOnly = true;
+            NextPPRankGain.Size = new Size(92, 23);
+            NextPPRankGain.TabIndex = 76;
+            NextPPRankGain.TextAlign = HorizontalAlignment.Right;
+            // 
+            // NextPPRankBox
+            // 
+            NextPPRankBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            NextPPRankBox.BackColor = Color.FromArgb(50, 50, 50);
+            NextPPRankBox.ForeColor = Color.White;
+            NextPPRankBox.Location = new Point(118, 170);
+            NextPPRankBox.Name = "NextPPRankBox";
+            NextPPRankBox.ReadOnly = true;
+            NextPPRankBox.Size = new Size(137, 23);
+            NextPPRankBox.TabIndex = 75;
+            NextPPRankBox.TextAlign = HorizontalAlignment.Right;
+            // 
+            // NextPPRankLabel
+            // 
+            NextPPRankLabel.AutoSize = true;
+            NextPPRankLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            NextPPRankLabel.Location = new Point(12, 171);
+            NextPPRankLabel.Name = "NextPPRankLabel";
+            NextPPRankLabel.Size = new Size(92, 17);
+            NextPPRankLabel.TabIndex = 74;
+            NextPPRankLabel.Text = "PP for +1 rank";
             // 
             // ContainerForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(30, 30, 30);
-            ClientSize = new Size(365, 721);
+            ClientSize = new Size(365, 751);
+            Controls.Add(NextPPRankGain);
+            Controls.Add(NextPPRankBox);
+            Controls.Add(NextPPRankLabel);
+            Controls.Add(NextScoreRankGain);
+            Controls.Add(NextScoreRankBox);
+            Controls.Add(NextScoreRankLabel);
             Controls.Add(DGainBox);
             Controls.Add(DBox);
             Controls.Add(DLabel);
@@ -1026,5 +1106,11 @@
         private TextBox CGainBox;
         private TextBox CBox;
         private Label CLabel;
+        private TextBox NextScoreRankGain;
+        private TextBox NextScoreRankBox;
+        private Label NextScoreRankLabel;
+        private TextBox NextPPRankGain;
+        private TextBox NextPPRankBox;
+        private Label NextPPRankLabel;
     }
 }

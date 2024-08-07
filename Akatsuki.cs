@@ -336,6 +336,14 @@ namespace osu_stats
             return json;
         }
 
+        public static Leaderboard GetPPLeaderboard(int mode, int relax, int page, int size = 500) {
+            var responseBody = GetResponse($"https://akatsuki.gg/api/v1/leaderboard?mode={mode}&rx={relax}&p={page}&l={size}&country=&sort=pp");
+            Leaderboard json = JsonConvert.DeserializeObject<Leaderboard>(responseBody);
+            json.Json = responseBody;
+            Thread.Sleep(500);
+            return json;
+        }
+
     }
 
 }

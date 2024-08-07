@@ -8,7 +8,7 @@ namespace osu_stats
     internal static class Program
     {
 
-        static readonly string VERSION = "4";
+        static readonly string VERSION = "6";
 
         [STAThread]
         static void Main() {
@@ -81,8 +81,8 @@ namespace osu_stats
         public static void RestartApplication() {
             try {
                 Process currentProcess = Process.GetCurrentProcess();
-                string exePath = Assembly.GetExecutingAssembly().Location;
-                Process.Start(exePath.Replace(".dll", ".exe"));
+                string exePath = currentProcess.MainModule.FileName;
+                Process.Start(exePath);
                 Application.Exit();
             } catch (Exception ex) {
                 MessageBox.Show($"An error occurred while restarting the application: {ex.Message}");

@@ -25,6 +25,8 @@ namespace osu_stats
             fields.Add((CountryRankLabel, CountryRankBox, CountryRankGainBox));
             fields.Add((RankedScoreLabel, RankedScoreBox, RankedScoreGainBox));
             fields.Add((TotalScoreLabel, TotalScoreBox, TotalScoreGainBox));
+            fields.Add((NextScoreRankLabel, NextScoreRankBox, NextScoreRankGain));
+            fields.Add((NextPPRankLabel, NextPPRankBox, NextPPRankGain));
             fields.Add((PpLabel, PpBox, PpGainBox));
             fields.Add((AccuracyLabel, AccuracyBox, AccuracyGainBox));
             fields.Add((PlayTimeLabel, PlayTimeBox, PlayTimeGainBox));
@@ -190,7 +192,7 @@ namespace osu_stats
             PpGainBox.Text = FormatGainInt((int)new_stats[mode].Pp, (int)old_stats[mode].Pp);
             AccuracyBox.Text = FormatAccuracy(new_stats[mode].Accuracy);
             AccuracyGainBox.Text = FormatAccuracyGain(new_stats[mode].Accuracy, old_stats[mode].Accuracy);
-            PlayTimeBox.Text = FormatPlayTime(new_stats[mode].Playtime-playtimeoffset);
+            PlayTimeBox.Text = FormatPlayTime(new_stats[mode].Playtime - playtimeoffset);
             PlayTimeGainBox.Text = FormatPlayTimeGain(new_stats[mode].Playtime, old_stats[mode].Playtime);
             PlayCountBox.Text = FormatNumber(new_stats[mode].Playcount);
             PlayCountGainBox.Text = FormatGainInt((int)new_stats[mode].Playcount, (int)old_stats[mode].Playcount);
@@ -206,6 +208,14 @@ namespace osu_stats
             if (settings.Firsts != null && settings.FirstsOld != null) {
                 FirstsBox.Text = FormatNumber(settings.Firsts[mode]);
                 FirstsBoxGain.Text = FormatGainInt(settings.Firsts[mode], settings.FirstsOld[mode]);
+            }
+            if (settings.NextScoreRank != null) {
+                NextScoreRankBox.Text = FormatNumber(settings.NextScoreRank[mode]);
+                NextScoreRankGain.Text = FormatNumber(settings.NextScoreRank[mode] - new_stats[mode].RankedScore);
+            }
+            if (settings.NextPPRank != null) {
+                NextPPRankBox.Text = FormatNumber(settings.NextPPRank[mode]);
+                NextPPRankGain.Text = FormatNumber(settings.NextPPRank[mode] - new_stats[mode].Pp);
             }
             SSHBox.Text = FormatNumber(new_stats[mode].Grades.XhCount);
             SSHGainBox.Text = FormatGainInt(new_stats[mode].Grades.XhCount, old_stats[mode].Grades.XhCount);

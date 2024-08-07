@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace osu_stats
 {
@@ -111,24 +112,40 @@ namespace osu_stats
                     var difference = DateTime.Now - leaderboards.LastUpdated;
                     if (difference.TotalMinutes > 15) {
                         settings.ScoreRank = new int[8];
+                        settings.NextScoreRank = new long[8];
+                        settings.NextPPRank = new int[8];
                         for (int i = 0; i < modes.Length; i++) {
                             var mode = modes[i];
                             var response = Akatsuki.GetScoreLeaderboard(mode.Item1, mode.Item2, 1);
                             var rank = 1;
                             var found = false;
+                            settings.NextScoreRank[i] = response.Users.First().ChosenMode.RankedScore;
                             foreach (var user in response.Users) {
                                 if (user.Id == settings.UserID) {
                                     found = true;
                                     break;
+                                } else {
+                                    settings.NextScoreRank[i] = user.ChosenMode.RankedScore;
                                 }
                                 rank += 1;
                             }
                             if (!found)
                                 rank = -1;
                             settings.ScoreRank[i] = rank;
+                            
+                            response = Akatsuki.GetPPLeaderboard(mode.Item1, mode.Item2, 1);
+                            settings.NextPPRank[i] = (int)response.Users.First().ChosenMode.Pp;
+                            foreach (var user in response.Users) {
+                                if (user.Id == settings.UserID) {
+                                    break;
+                                } else {
+                                    settings.NextPPRank[i] = (int)user.ChosenMode.Pp;
+                                }
+                            }
                         }
                         if (settings.ScoreRankOld == null)
                             settings.ScoreRankOld = (int[]?)settings.ScoreRank.Clone();
+
                     }
                     leaderboards.Save();
                     settings.Save();
