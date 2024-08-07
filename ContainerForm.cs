@@ -1,4 +1,5 @@
 using Newtonsoft.Json;
+using osu_stats.Properties;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -45,6 +46,7 @@ namespace osu_stats
         }
 
         private void StatsUI_Load(object sender, EventArgs e) {
+            this.Icon = Resources.scoer;
             var settings = Settings.Load();
             if (settings.Fields == null)
                 settings.Fields = new Dictionary<string, bool>();

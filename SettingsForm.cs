@@ -1,4 +1,5 @@
-﻿using System;
+﻿using osu_stats.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,6 +23,7 @@ namespace osu_stats
         }
 
         private void SettingsForm_Load(object sender, EventArgs e) {
+            this.Icon = Resources.scoer;
             var stats = ContainerForm.GetStats();
             var settings = Settings.Load();
             var filestreams = FileStreams.Load();
